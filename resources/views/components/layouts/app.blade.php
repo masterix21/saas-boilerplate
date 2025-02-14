@@ -71,8 +71,6 @@
     @section('scripts')
         <script>
             document.addEventListener('alpine:init', () => {
-                console.log('alpine:init ok');
-
                 Alpine.store('currentUser', @js(auth()->user()));
             });
         </script>
