@@ -16,8 +16,8 @@
     @fluxStyles
     @vite(['resources/css/app.css'])
 </head>
-<body class="font-sans antialiased bg-white h-full w-full">
-    @yield('body')
+<body {{ $attributes->merge(['class' => 'font-sans antialiased bg-white h-full w-full']) }}>
+    {{ $slot }}
 
     @vite(['resources/js/app.js'])
     @fluxScripts
