@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\Contracts\ResetsUserPasswords;
 use Laravel\Fortify\Fortify;
 
@@ -14,6 +16,7 @@ class FortifyServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        app()->singleton(CreatesNewUsers::class, CreateNewUser::class);
         app()->singleton(ResetsUserPasswords::class, ResetUserPassword::class);
     }
 

@@ -9,7 +9,7 @@
         <p class="mt-2 text-sm/6 text-secondary-500">
             {{ __('Not a member?') }}
 
-            <a href="#" class="font-semibold text-primary-600 hover:text-primary-500">{{ __('Register today!') }}</a>
+            <a href="{{  route('register') }}" class="font-semibold text-primary-600 hover:text-primary-500">{{ __('Register today!') }}</a>
         </p>
     </div>
 
