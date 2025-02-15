@@ -4,7 +4,7 @@
             <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
 
             <div class="flex flex-col">
-                <p class="text-2xl lg:text-lg font-semibold" x-text="$store.currentUser.name"></p>
+                <p class="text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-semibold" x-text="$store.currentUser.name"></p>
             </div>
         </div>
         <div class="flex-1 lg:col-span-6 p-3">
