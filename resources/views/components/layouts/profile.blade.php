@@ -2,8 +2,6 @@
                 style="background-image: url('{{ asset('images/backgrounds/auth.webp') }}'); background-size: cover; background-position: center; background-repeat: no-repeat">
     <div class="w-full h-full flex flex-col items-center justify-center">
         <div class="mx-auto w-5/6 h-5/6 border rounded-lg shadow-md bg-white">
-
-
             {{ $slot }}
         </div>
     </div>

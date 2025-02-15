@@ -21,6 +21,8 @@
 
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
             <flux:button variant="ghost" class="w-full text-left flex !justify-start">
+                <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-8 w-8 rounded-full" />
+
                 <p x-text="$store.currentUser.name"></p>
             </flux:button>
 
@@ -43,7 +45,7 @@
         <flux:spacer />
 
         <flux:dropdown position="top" alignt="start">
-            <flux:profile avatar="https://fluxui.dev/img/demo/user.png" />
+            <flux:profile avatar="{{ gravatar(auth()->user()->email)->url() }}" />
 
             <flux:menu>
                 <flux:menu.item href="{{route('profile.show')}}" x-text="$store.currentUser.name" />

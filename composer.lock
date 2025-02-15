@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fb7835684e0b5353a2bb1129f7a5d9f",
+    "content-hash": "b73d5f35505041e3ce54ee61eaba7acd",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -1138,6 +1138,122 @@
             "time": "2024-12-27T00:36:43+00:00"
         },
         {
+            "name": "forxer/gravatar",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/forxer/gravatar.git",
+                "reference": "0fbc0993b83be7edd5b85daafb4f3b7ee299e0c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/forxer/gravatar/zipball/0fbc0993b83be7edd5b85daafb4f3b7ee299e0c6",
+                "reference": "0fbc0993b83be7edd5b85daafb4f3b7ee299e0c6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.16.0",
+                "rector/rector": "^1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gravatar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Garnier",
+                    "email": "forxer@gmail.org"
+                }
+            ],
+            "description": "A library providing easy gravatar integration.",
+            "homepage": "https://github.com/forxer/gravatar",
+            "keywords": [
+                "gravatar",
+                "php"
+            ],
+            "support": {
+                "email": "forxer@gmail.com",
+                "issues": "https://github.com/forxer/gravatar/issues",
+                "source": "https://github.com/forxer/gravatar/tree/5.0.0"
+            },
+            "time": "2024-05-26T21:45:17+00:00"
+        },
+        {
+            "name": "forxer/laravel-gravatar",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/forxer/laravel-gravatar.git",
+                "reference": "005f546dda31bcc8aa5e3ac0fb6960b0bd1a3efd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/forxer/laravel-gravatar/zipball/005f546dda31bcc8aa5e3ac0fb6960b0bd1a3efd",
+                "reference": "005f546dda31bcc8aa5e3ac0fb6960b0bd1a3efd",
+                "shasum": ""
+            },
+            "require": {
+                "forxer/gravatar": "^5.0",
+                "laravel/framework": "^10.0 || ^11.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "driftingly/rector-laravel": "^1.2",
+                "laravel/pint": "^1.16.0",
+                "rector/rector": "^1.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Gravatar": "LaravelGravatar\\Facades\\Gravatar"
+                    },
+                    "providers": [
+                        "LaravelGravatar\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "LaravelGravatar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Garnier",
+                    "email": "forxer@gmail.org"
+                }
+            ],
+            "description": "A library providing easy gravatar integration in a Laravel project.",
+            "homepage": "https://github.com/forxer/laravel-gravatar",
+            "keywords": [
+                "gravatar",
+                "laravel"
+            ],
+            "support": {
+                "email": "forxer@gmail.com",
+                "issues": "https://github.com/forxer/laravel-gravatar/issues",
+                "source": "https://github.com/forxer/laravel-gravatar/tree/4.0.0"
+            },
+            "time": "2024-05-26T21:56:43+00:00"
+        },
+        {
             "name": "fruitcake/php-cors",
             "version": "v1.3.0",
             "source": {
@@ -2096,16 +2212,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "15.13.0",
+            "version": "15.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "24b7968adbbc74a8067b76fbc2800ce2cd007bcb"
+                "reference": "2c979be83cca8b6eac2ce9cf1c05efef63146f03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/24b7968adbbc74a8067b76fbc2800ce2cd007bcb",
-                "reference": "24b7968adbbc74a8067b76fbc2800ce2cd007bcb",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/2c979be83cca8b6eac2ce9cf1c05efef63146f03",
+                "reference": "2c979be83cca8b6eac2ce9cf1c05efef63146f03",
                 "shasum": ""
             },
             "require": {
@@ -2155,7 +2271,7 @@
                 "issues": "https://github.com/Laravel-Lang/lang/issues",
                 "source": "https://github.com/Laravel-Lang/lang"
             },
-            "time": "2025-02-06T10:38:55+00:00"
+            "time": "2025-02-14T12:37:16+00:00"
         },
         {
             "name": "laravel-lang/locale-list",
