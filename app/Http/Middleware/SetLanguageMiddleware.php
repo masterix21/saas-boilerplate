@@ -9,7 +9,7 @@ class SetLanguageMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $language = auth()->user()->language ?? $request->getPreferredLanguage(config('app.supported_locales'));
+        $language = auth()->user()?->language ?: $request->getPreferredLanguage(config('app.supported_locales'));
 
         app()->setLocale($language);
 

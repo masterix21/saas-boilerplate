@@ -63,12 +63,4 @@
     <flux:main>
         {{ $slot }}
     </flux:main>
-
-    @section('scripts')
-        <script>
-            document.addEventListener('alpine:init', () => {
-                Alpine.store('currentUser', @js(auth()->user()));
-            });
-        </script>
-    @endsection
 </x-empty-layout>

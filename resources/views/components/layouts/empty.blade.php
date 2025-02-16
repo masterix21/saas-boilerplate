@@ -22,5 +22,13 @@
     @vite(['resources/js/app.js'])
     @fluxScripts
     @yield('scripts')
+
+    @if (auth()->check())
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.store('currentUser', @js(auth()->user()));
+            });
+        </script>
+    @endif
 </body>
 </html>
