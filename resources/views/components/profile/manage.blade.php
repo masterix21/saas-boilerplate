@@ -1,5 +1,5 @@
 <div class="-m-6 flex flex-col divide-y lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
-    <div class="lg:col-span-2 flex lg:flex-col items-center space-x-6 lg:space-x-0 lg:space-y-6 p-6">
+    <div class="lg:col-span-2 flex lg:flex-col items-center space-x-6 lg:space-x-0 lg:space-y-6 p-6 overflow-hidden">
         <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
 
         <div class="flex flex-col lg:justify-center lg:items-center">
@@ -35,9 +35,12 @@
                 <flux:tab name="security" icon="key" class="px-6 pb-6">{{ __('Security') }}</flux:tab>
             </flux:tabs>
 
-            <flux:tab.panel name="profile">...</flux:tab.panel>
-            <flux:tab.panel name="billing">...</flux:tab.panel>
-            <flux:tab.panel name="security">...</flux:tab.panel>
+            <flux:tab.panel name="profile" class="p-6">
+                <livewire:profile.edit />
+            </flux:tab.panel>
+
+            <flux:tab.panel name="billing" class="!pt-0">...</flux:tab.panel>
+            <flux:tab.panel name="security" class="!pt-0">...</flux:tab.panel>
         </flux:tab.group>
 
         {{ $slot }}
