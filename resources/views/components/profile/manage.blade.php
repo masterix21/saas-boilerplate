@@ -1,4 +1,4 @@
-<div class="-m-6 flex flex-col divide-y lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
+<div class="flex-1 flex flex-col divide-y lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
     <div class="lg:col-span-2 flex lg:flex-col items-center space-x-6 lg:space-x-0 lg:space-y-6 p-6 overflow-hidden">
         <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
 
@@ -16,7 +16,7 @@
             </form>
         </div>
 
-        <flux:menu.separator class="hidden lg:block" />
+        <div class="hidden lg:flex lg:flex-1"></div>
 
         <form method="post" action="{{ route('logout') }}" class="hidden lg:block">
             @csrf
@@ -29,7 +29,7 @@
     </div>
     <div class="flex-1 lg:col-span-6 pt-6">
         <flux:tab.group>
-            <flux:tabs>
+            <flux:tabs class="pr-16">
                 <flux:tab name="profile" icon="user" class="px-6 pb-6">{{ __('Profile') }}</flux:tab>
                 <flux:tab name="billing" icon="banknotes" class="px-6 pb-6">{{ __('Billing') }}</flux:tab>
                 <flux:tab name="security" icon="key" class="px-6 pb-6">{{ __('Security') }}</flux:tab>

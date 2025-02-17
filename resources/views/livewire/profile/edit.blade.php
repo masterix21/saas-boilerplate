@@ -36,7 +36,6 @@ new class extends \Livewire\Volt\Component
                         name="name"
                         wire:model="data.name"
                         required
-                        autofocus
                         autocomplete="name" />
             <flux:error name="name" />
         </flux:field>

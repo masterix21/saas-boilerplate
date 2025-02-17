@@ -28,7 +28,9 @@
             });
         </script>
 
-        <flux:modal name="manage-profile" class="max-w-7xl" :dismissible="false">
+        <flux:modal name="manage-profile"
+                    class="!p-0 sm:min-w-[60%] sm:min-h-[60%] flex flex-col"
+                    :dismissible="false">
             <x-profile.manage />
         </flux:modal>
     @endif
