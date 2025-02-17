@@ -31,11 +31,11 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::loginView(fn () => view('auth.login'));
         Fortify::registerView(fn () => view('auth.register'));
-        Fortify::verifyEmailView(fn () => view('auth.email'));
+        Fortify::verifyEmailView(fn () => view('auth.verify-email'));
 
         Fortify::requestPasswordResetLinkView(fn () => view('auth.passwords.email'));
         Fortify::resetPasswordView(fn () => view('auth.passwords.reset'));
-        // Fortify::confirmPasswordView(fn () => view('auth.passwords.confirm'));
+        Fortify::confirmPasswordView(fn () => view('auth.passwords.confirms'));
 
         Fortify::twoFactorChallengeView(fn () => view('auth.two-factor'));
     }

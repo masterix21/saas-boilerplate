@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/app')->middleware('auth');
 
-Route::get('/terms', fn () => 'terms')->name('terms');
+Route::get('/terms', fn () => 'terms')->name('terms')->middleware('password.confirm');
 Route::get('/policy', fn () => 'policy')->name('policy');
 
 Route::name('app.')
