@@ -58,8 +58,12 @@ new class extends \Livewire\Volt\Component
 @script
     <script>
         $wire.on('saved', function (data) {
-            Alpine.store('currentUser').name = data[0].currentUser.name;
-            Alpine.store('currentUser').email = data[0].currentUser.email;
+            let currentUser = Object.assign($store.currentUser, {
+                name: data[0].currentUser.name,
+                email: data[0].currentUser.email,
+            });
+
+            Alpine.store('currentUser' , currentUser);
         });
     </script>
 @endscript
