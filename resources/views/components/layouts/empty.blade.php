@@ -20,8 +20,6 @@
     {{ $slot }}
 
     @vite(['resources/js/app.js'])
-    @fluxScripts
-    @yield('scripts')
 
     @if (auth()->check())
         <script>
@@ -29,6 +27,17 @@
                 Alpine.store('currentUser', @js(auth()->user()));
             });
         </script>
+
+        <flux:modal name="manage-profile" class="max-w-7xl" :dismissible="false">
+            <x-profile.manage />
+        </flux:modal>
     @endif
+
+    @yield('modals')
+
+    @fluxScripts
+    @livewire('wire-elements-modal')
+
+    @yield('scripts')
 </body>
 </html>

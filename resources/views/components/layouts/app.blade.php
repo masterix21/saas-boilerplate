@@ -19,24 +19,13 @@
             <flux:navlist.item icon="information-circle" href="#">Help</flux:navlist.item>
         </flux:navlist>
 
-        <flux:dropdown position="top" align="start" class="max-lg:hidden">
+        <flux:modal.trigger name="manage-profile">
             <flux:button variant="ghost" class="w-full text-left flex !justify-start">
                 <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-8 w-8 rounded-full" />
 
                 <p x-text="$store.currentUser.name"></p>
             </flux:button>
-
-            <flux:menu>
-                <flux:menu.item href="{{route('profile.show')}}" x-text="$store.currentUser.name" />
-
-                <flux:menu.separator />
-
-                <form method="post" action="{{ route('logout') }}">
-                    @csrf
-                    <flux:menu.item type="submit" icon="arrow-right-start-on-rectangle">{{ __('Log Out') }}</flux:menu.item>
-                </form>
-            </flux:menu>
-        </flux:dropdown>
+        </flux:modal.trigger>
     </flux:sidebar>
 
     <flux:header class="lg:hidden">
@@ -44,20 +33,9 @@
 
         <flux:spacer />
 
-        <flux:dropdown position="top" alignt="start">
-            <flux:profile avatar="{{ gravatar(auth()->user()->email)->url() }}" />
-
-            <flux:menu>
-                <flux:menu.item href="{{route('profile.show')}}" x-text="$store.currentUser.name" />
-
-                <flux:menu.separator />
-
-                <form method="post" action="{{ route('logout') }}">
-                    @csrf
-                    <flux:menu.item type="submit" icon="arrow-right-start-on-rectangle">{{ __('Log Out') }}</flux:menu.item>
-                </form>
-            </flux:menu>
-        </flux:dropdown>
+        <flux:modal.trigger name="manage-profile">
+            <flux:profile avatar="{{ gravatar(auth()->user()->email)->url() }}" chevron="" />
+        </flux:modal.trigger>
     </flux:header>
 
     <flux:main>
