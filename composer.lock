@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27d27167e153657c617d035c2c231299",
+    "content-hash": "64287d45cba19c259045a6b15e5466b8",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -4154,6 +4154,272 @@
             "time": "2024-11-12T14:51:01+00:00"
         },
         {
+            "name": "masterix21/laravel-addressable",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/masterix21/laravel-addressable.git",
+                "reference": "8d7a5eb6070abda63021a5fc99a5f1aba5af265a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/masterix21/laravel-addressable/zipball/8d7a5eb6070abda63021a5fc99a5f1aba5af265a",
+                "reference": "8d7a5eb6070abda63021a5fc99a5f1aba5af265a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^11.23",
+                "matanyadaev/laravel-eloquent-spatial": "^4.4",
+                "php": "^8.2|^8.3|^8.4"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9",
+                "laravel/pint": "^1.17",
+                "orchestra/testbench": "^9.4",
+                "pestphp/pest": "^3.1",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-drift": "3.x-dev",
+                "pestphp/pest-plugin-faker": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Masterix21\\Addressable\\AddressableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Masterix21\\Addressable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Longo",
+                    "email": "l.longo@ambita.it",
+                    "homepage": "https://masterix.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Addresses for any Eloquent model",
+            "homepage": "https://github.com/masterix21/laravel-addressable",
+            "keywords": [
+                "laravel-addressable",
+                "masterix21"
+            ],
+            "support": {
+                "issues": "https://github.com/masterix21/laravel-addressable/issues",
+                "source": "https://github.com/masterix21/laravel-addressable/tree/2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/masterix21",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/masterix21",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-02T17:43:41+00:00"
+        },
+        {
+            "name": "masterix21/laravel-subscriptions",
+            "version": "0.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/masterix21/laravel-subscriptions.git",
+                "reference": "55eefd10e9520802d115131cecfef18801f193d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/masterix21/laravel-subscriptions/zipball/55eefd10e9520802d115131cecfef18801f193d6",
+                "reference": "55eefd10e9520802d115131cecfef18801f193d6",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://masterix21.repo.repman.io/dists/%package%/%version%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "illuminate/contracts": "^10.0||^11.0",
+                "php": "^8.2|^8.3",
+                "spatie/laravel-collection-macros": "^7.14",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "filament/tables": "^3.2",
+                "guava/filament-clusters": "^1.2",
+                "larastan/larastan": "^2.9",
+                "laravel/pint": "^1.14",
+                "nunomaduro/collision": "^8.1.1||^7.10.0",
+                "orchestra/testbench": "^9.0.0||^8.22.0",
+                "pestphp/pest": "^2.34",
+                "pestphp/pest-plugin-arch": "^2.7",
+                "pestphp/pest-plugin-laravel": "^2.3",
+                "phpstan/extension-installer": "^1.3",
+                "phpstan/phpstan-deprecation-rules": "^1.1",
+                "phpstan/phpstan-phpunit": "^1.3",
+                "spatie/laravel-ray": "^1.35"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LucaLongo\\Subscriptions\\SubscriptionsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Subscriptions": "LucaLongo\\Subscriptions\\Facades\\Subscriptions"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LucaLongo\\Subscriptions\\": "src/",
+                    "LucaLongo\\Subscriptions\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "LucaLongo\\Subscriptions\\Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/"
+                }
+            },
+            "notification-url": "https://masterix21.repo.repman.io/downloads",
+            "scripts": {
+                "post-autoload-dump": [
+                    "@composer run prepare"
+                ],
+                "clear": [
+                    "@php vendor/bin/testbench package:purge-laravel-subscriptions --ansi"
+                ],
+                "prepare": [
+                    "@php vendor/bin/testbench package:discover --ansi"
+                ],
+                "build": [
+                    "@composer run prepare",
+                    "@php vendor/bin/testbench workbench:build --ansi"
+                ],
+                "start": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@composer run build",
+                    "@php vendor/bin/testbench serve"
+                ],
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ],
+                "format": [
+                    "vendor/bin/pint"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Longo",
+                    "email": "l.longo@ambita.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel subscriptions for an unopinionated payment system",
+            "homepage": "https://github.com/masterix21/laravel-subscriptions",
+            "keywords": [
+                "Luca Longo",
+                "laravel",
+                "laravel-subscriptions",
+                "masterix21"
+            ],
+            "support": {
+                "source": "https://github.com/masterix21/laravel-subscriptions/tree/0.0.9",
+                "issues": "https://github.com/masterix21/laravel-subscriptions/issues"
+            },
+            "funding": [
+                {
+                    "type": "github",
+                    "url": "https://github.com/Luca Longo"
+                }
+            ],
+            "time": "2024-07-25T09:17:17+00:00"
+        },
+        {
+            "name": "matanyadaev/laravel-eloquent-spatial",
+            "version": "4.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MatanYadaev/laravel-eloquent-spatial.git",
+                "reference": "13007829518e0261aba5185a7e2a3bc26a0bb51c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MatanYadaev/laravel-eloquent-spatial/zipball/13007829518e0261aba5185a7e2a3bc26a0bb51c",
+                "reference": "13007829518e0261aba5185a7e2a3bc26a0bb51c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "laravel/framework": "^10.0|^11.0",
+                "phayes/geophp": "^1.2",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^3.5.3",
+                "larastan/larastan": "^1.0|^2.4",
+                "laravel/pint": "^1.14",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MatanYadaev\\EloquentSpatial\\EloquentSpatialServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MatanYadaev\\EloquentSpatial\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matan Yadaev",
+                    "email": "matan.yed@gmail.com"
+                }
+            ],
+            "description": "Spatial library for Laravel",
+            "homepage": "https://github.com/matanyadaev/laravel-eloquent-spatial",
+            "support": {
+                "issues": "https://github.com/MatanYadaev/laravel-eloquent-spatial/issues",
+                "source": "https://github.com/MatanYadaev/laravel-eloquent-spatial/tree/4.4.1"
+            },
+            "time": "2024-11-30T15:57:55+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "3.8.1",
             "source": {
@@ -4721,6 +4987,46 @@
                 "source": "https://github.com/paragonie/constant_time_encoding"
             },
             "time": "2024-05-08T12:36:18+00:00"
+        },
+        {
+            "name": "phayes/geophp",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phayes/geoPHP.git",
+                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phayes/geoPHP/zipball/015404e85b602e0df1f91441f8db0f9e98f7e567",
+                "reference": "015404e85b602e0df1f91441f8db0f9e98f7e567",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "geoPHP.inc"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2 or New-BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Patrick Hayes"
+                }
+            ],
+            "description": "GeoPHP is a open-source native PHP library for doing geometry operations. It is written entirely in PHP and can therefore run on shared hosts. It can read and write a wide variety of formats: WKT (including EWKT), WKB (including EWKB), GeoJSON, KML, GPX, GeoRSS). It works with all Simple-Feature geometries (Point, LineString, Polygon, GeometryCollection etc.) and can be used to get centroids, bounding-boxes, area, and a wide variety of other useful information.",
+            "homepage": "https://github.com/phayes/geoPHP",
+            "support": {
+                "issues": "https://github.com/phayes/geoPHP/issues",
+                "source": "https://github.com/phayes/geoPHP/tree/master"
+            },
+            "time": "2014-12-02T06:11:22+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5564,6 +5870,85 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "spatie/laravel-collection-macros",
+            "version": "7.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-collection-macros.git",
+                "reference": "4eb51aa510642e90ca3e8244a19bd578685851a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-collection-macros/zipball/4eb51aa510642e90ca3e8244a19bd578685851a1",
+                "reference": "4eb51aa510642e90ca3e8244a19bd578685851a1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "amphp/parallel": "^1.4.3|^2.2",
+                "amphp/parallel-functions": "^1.1.0|^2.0",
+                "mockery/mockery": "^1.6.2",
+                "orchestra/testbench": "^8.5.9|^9.0",
+                "pestphp/pest": "^2.0",
+                "phpunit/phpunit": "10.2.2|^10.5",
+                "spatie/laravel-ray": "^1.32.5",
+                "symfony/stopwatch": "^6.3|^7.0"
+            },
+            "suggest": {
+                "amphp/parallel-functions": "Required when using the parallel*-macros."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CollectionMacros\\CollectionMacroServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CollectionMacros\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://github.com/freekmurze",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://github.com/sebastiandedeyne",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel collection macros",
+            "homepage": "https://github.com/spatie/laravel-collection-macros",
+            "keywords": [
+                "laravel-collection-macros",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-collection-macros/tree/7.14.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-11T09:10:16+00:00"
         },
         {
             "name": "spatie/laravel-login-link",

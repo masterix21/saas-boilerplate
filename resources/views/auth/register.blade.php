@@ -20,14 +20,24 @@
                 @csrf
 
                 <flux:field>
-                    <flux:label>{{ __('Name') }}</flux:label>
+                    <flux:label>{{ __('First name') }}</flux:label>
                     <flux:input type="text"
-                                name="name"
-                                :value="old('name')"
+                                name="first_name"
+                                :value="old('first_name')"
                                 required
                                 autofocus
-                                autocomplete="name" />
-                    <flux:error name="name" />
+                                autocomplete="given-name" />
+                    <flux:error name="first_name" />
+                </flux:field>
+
+                <flux:field>
+                    <flux:label>{{ __('Last name') }}</flux:label>
+                    <flux:input type="text"
+                                name="last_name"
+                                :value="old('last_name')"
+                                required
+                                autocomplete="family-name" />
+                    <flux:error name="last_name" />
                 </flux:field>
 
                 <flux:field>

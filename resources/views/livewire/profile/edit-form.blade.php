@@ -10,7 +10,8 @@ new class extends \Livewire\Volt\Component
     public function mount(): void
     {
         $this->data = [
-            'name' => auth()->user()->name,
+            'first_name' => auth()->user()->first_name,
+            'last_name' => auth()->user()->last_name,
             'email' => auth()->user()->email,
         ];
     }
@@ -23,7 +24,7 @@ new class extends \Livewire\Volt\Component
                 input: $this->data,
             );
 
-        $this->dispatch('saved', ['currentUser' => $this->data]);
+        $this->dispatch('saved', ['currentUser' => auth()->user()->toArray()]);
 
         Flux::toast(__('Successfully saved.'), variant: 'success', position: 'top right');
     }
@@ -34,13 +35,23 @@ new class extends \Livewire\Volt\Component
 <form method="post" wire:submit.prevent="submit">
     <div class="grid lg:grid-cols-2 gap-6 mb-6">
         <flux:field>
-            <flux:label>{{ __('Name') }}</flux:label>
+            <flux:label>{{ __('First name') }}</flux:label>
             <flux:input type="text"
-                        name="name"
-                        wire:model="data.name"
+                        name="first_name"
+                        wire:model="data.first_name"
                         required
-                        autocomplete="name" />
-            <flux:error name="name" />
+                        autocomplete="given-name" />
+            <flux:error name="first_name" />
+        </flux:field>
+
+        <flux:field>
+            <flux:label>{{ __('Last name') }}</flux:label>
+            <flux:input type="text"
+                        name="last_name"
+                        wire:model="data.last_name"
+                        required
+                        autocomplete="family-name" />
+            <flux:error name="last_name" />
         </flux:field>
 
         <flux:field>
@@ -61,7 +72,9 @@ new class extends \Livewire\Volt\Component
     <script>
         $wire.on('saved', function (data) {
             let currentUser = Object.assign($store.currentUser, {
-                name: data[0].currentUser.name,
+                first_name: data[0].currentUser.first_name,
+                last_name: data[0].currentUser.last_name,
+                display_label: data[0].currentUser.display_label,
                 email: data[0].currentUser.email,
             });
 

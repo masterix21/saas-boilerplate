@@ -3,7 +3,7 @@
         <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
 
         <div class="flex flex-col lg:justify-center lg:items-center">
-            <p class="text-lg font-semibold" x-text="$store.currentUser.name"></p>
+            <p class="text-lg font-semibold" x-text="$store.currentUser.display_label"></p>
             <p class="text-sm text-secondary-500" x-text="$store.currentUser.email"></p>
 
             <form method="post" action="{{ route('logout') }}" class="lg:hidden mt-1.5 -ml-1">
