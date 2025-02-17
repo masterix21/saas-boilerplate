@@ -1,5 +1,6 @@
 <?php
 
+use Flux\Flux;
 use function Livewire\Volt\{state};
 
 new class extends \Livewire\Volt\Component
@@ -23,6 +24,8 @@ new class extends \Livewire\Volt\Component
             );
 
         $this->dispatch('saved', ['currentUser' => $this->data]);
+
+        Flux::toast(__('Successfully saved.'), variant: 'success', position: 'top right');
     }
 }
 

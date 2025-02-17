@@ -56,16 +56,7 @@
 
         @env('local')
             <div class="mt-10">
-                <div class="relative">
-                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                        <div class="w-full border-t border-gray-200"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm/6 font-medium">
-                        <span class="bg-white px-6 text-gray-900">
-                            {{ __('Local environment only') }}
-                        </span>
-                    </div>
-                </div>
+                <flux:separator text="{{ __('Local environment only') }}" />
 
                 <div class="mt-6 flex flex-col gap-4">
                     <x-login-link class="border rounded px-3 py-1.5 w-full text-danger-500" email="l.longo@ambita.it" label="l.longo@ambita.it" />

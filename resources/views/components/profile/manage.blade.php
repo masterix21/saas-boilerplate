@@ -36,11 +36,20 @@
             </flux:tabs>
 
             <flux:tab.panel name="profile" class="p-6">
-                <livewire:profile.edit />
+                <livewire:profile.edit-form />
             </flux:tab.panel>
 
-            <flux:tab.panel name="billing" class="!pt-0">...</flux:tab.panel>
-            <flux:tab.panel name="security" class="!pt-0">...</flux:tab.panel>
+            <flux:tab.panel name="billing" class="p-6">
+                Billing
+            </flux:tab.panel>
+
+            <flux:tab.panel name="security" class="p-6">
+                <livewire:profile.security.update-password-form />
+
+                <flux:separator class="my-8" />
+
+                <livewire:profile.security.two-factor-authentication-form />
+            </flux:tab.panel>
         </flux:tab.group>
 
         {{ $slot }}

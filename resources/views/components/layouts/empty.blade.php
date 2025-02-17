@@ -35,6 +35,10 @@
         </flux:modal>
     @endif
 
+    @persist('toast')
+        <flux:toast />
+    @endpersist
+
     @yield('modals')
 
     @fluxScripts
