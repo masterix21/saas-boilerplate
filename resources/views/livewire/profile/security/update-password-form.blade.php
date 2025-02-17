@@ -30,7 +30,7 @@ new class extends \Livewire\Volt\Component {
     </flux:subheading>
 
     <form method="post" wire:submit.prevent="submit">
-        <div class="grid lg:grid-cols-2 gap-6 mb-6">
+        <div class="grid lg:grid-cols-2 lg:column-off gap-6 mb-6">
             <flux:field>
                 <flux:label>{{ __('Current password') }}</flux:label>
                 <flux:input type="password"
@@ -41,7 +41,7 @@ new class extends \Livewire\Volt\Component {
                 <flux:error name="current_password"/>
             </flux:field>
 
-            <flux:field>
+            <flux:field class="col-start-1">
                 <flux:label>{{ __('New password') }}</flux:label>
                 <flux:input type="password"
                             name="password"
