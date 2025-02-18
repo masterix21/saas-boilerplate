@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'l.longo@ambita.it',
             'password' => bcrypt('lucaluca'),
             'email_verified_at' => now(),
+            'language' => 'it',
         ]);
     }
 }
