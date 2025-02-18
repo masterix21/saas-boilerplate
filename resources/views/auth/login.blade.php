@@ -59,7 +59,9 @@
                 <flux:separator text="{{ __('Local environment only') }}" />
 
                 <div class="mt-6 flex flex-col gap-4">
-                    <x-login-link class="border rounded px-3 py-1.5 w-full text-danger-500" email="l.longo@ambita.it" label="l.longo@ambita.it" />
+                    <x-login-link class="border rounded px-3 py-1.5 w-full text-danger-500" email="l.longo@ambita.it" label="Luca Longo (cowboy)" />
+
+                    <x-login-link class="border rounded px-3 py-1.5 w-full text-danger-500" email="m.rossi@example.org" label="Mario Rossi (normal user)" />
                 </div>
             </div>
         @endenv

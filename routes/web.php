@@ -8,7 +8,7 @@ Route::get('/terms', fn () => 'terms')->name('terms')->middleware('password.conf
 Route::get('/policy', fn () => 'policy')->name('policy');
 
 Route::name('app.')
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'no-cowboys'])
     ->prefix('/app')
     ->group(function () {
         Route::view('/', 'dashboard')->name('dashboard');

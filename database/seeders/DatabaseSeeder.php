@@ -21,5 +21,14 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'language' => 'it',
         ]);
+
+        User::create([
+            'first_name' => 'Mario',
+            'last_name' => 'Rossi',
+            'email' => 'm.rossi@example.org',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'language' => 'it',
+        ]);
     }
 }

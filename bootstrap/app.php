@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\CowboysOnlyMiddleware;
+use App\Http\Middleware\NoCowboysMiddleware;
 use App\Http\Middleware\SetLanguageMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,6 +16,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web([
             SetLanguageMiddleware::class,
+        ]);
+
+        $middleware->alias([
+            'no-cowboys' => NoCowboysMiddleware::class,
+            'cowboys-only' => CowboysOnlyMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

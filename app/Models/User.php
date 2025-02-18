@@ -3,6 +3,12 @@
 namespace App\Models;
 
 use App\Models\Concerns\DisplayLabel;
+use App\Models\Concerns\HasPersonalTeam;
+use App\Models\Concerns\HasTeams;
+use App\Models\Concerns\TeamMate;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,12 +17,19 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use LucaLongo\Subscriptions\Models\Concerns\HasSubscriptions;
 
-class User extends Authenticatable implements MustVerifyEmail, DisplayLabel
+class User extends Authenticatable implements
+    MustVerifyEmail,
+    TeamMate,
+    HasPersonalTeam,
+    DisplayLabel,
+    FilamentUser,
+    HasName
 {
     use HasFactory;
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasSubscriptions;
+    use HasTeams;
 
     protected $fillable = [
         'first_name',
@@ -53,5 +66,20 @@ class User extends Authenticatable implements MustVerifyEmail, DisplayLabel
             ->append($this->last_name)
             ->squish()
         );
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->display_label;
+    }
+
+    public function isCowBoy(): bool
+    {
+        return str($this->email)->endsWith('@ambita.it');
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->isCowBoy();
     }
 }
