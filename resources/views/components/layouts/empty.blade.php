@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-white">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-white dark:bg-secondary-900">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
     @fluxAppearance
     @vite(['resources/css/app.css'])
 </head>
-<body {{ $attributes->merge(['class' => 'font-sans antialiased bg-white h-full w-full']) }}>
+<body {{ $attributes->merge(['class' => 'font-sans antialiased h-full w-full']) }}>
     {{ $slot }}
 
     @vite(['resources/js/app.js'])

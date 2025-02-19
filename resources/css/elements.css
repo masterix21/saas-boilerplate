@@ -1,0 +1,14 @@
+@layer components
+{
+    .text-primary-link {
+        @apply text-primary-600 dark:text-primary-400 hover:text-primary-500;
+    }
+
+    .text-heading {
+        @apply text-2xl/9 font-bold tracking-tight text-secondary-900 dark:text-secondary-50;
+    }
+
+    .text-subheading {
+        @apply text-sm/6 text-secondary-500 dark:text-secondary-200;
+    }
+}

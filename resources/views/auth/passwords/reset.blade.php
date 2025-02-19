@@ -1,10 +1,4 @@
-<x-split-layout>
-    <div>
-        <x-logo />
-
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">{{ __('Change your password') }}</h2>
-    </div>
-
+<x-split-layout heading="{{ __('Change your password') }}">
     <div class="mt-10">
         <div>
             @session('status')

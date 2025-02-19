@@ -1,18 +1,17 @@
-<div class="flex-1 flex flex-col divide-y lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
+<div class="flex-1 flex flex-col divide-y divide-secondary-100 dark:divide-secondary-700 lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
     <div class="lg:col-span-2 flex lg:flex-col items-center space-x-6 lg:space-x-0 lg:space-y-6 py-6 lg:py-12 px-6 overflow-hidden">
         <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
 
         <div class="flex flex-col lg:justify-center lg:items-center">
             <p class="text-lg font-semibold" x-text="$store.currentUser.display_label"></p>
-            <p class="text-sm text-secondary-500" x-text="$store.currentUser.email"></p>
+            <p class="text-sm text-secondary-500 dark:text-secondary-400" x-text="$store.currentUser.email"></p>
 
-            <form method="post" action="{{ route('logout') }}" class="lg:hidden mt-1.5 -ml-1">
+            <form method="post" action="{{ route('logout') }}" class="lg:hidden mt-3 -ml-1">
                 @csrf
-                <button type="submit" class="flex items-center space-x-1.5 group text-xs text-secondary-500 hover:text-danger-500">
-                    <flux:icon.arrow-right-start-on-rectangle />
 
-                    <span >{{ __('Log Out') }}</span>
-                </button>
+                <flux:button type="submit" size="sm" icon="arrow-right-start-on-rectangle">
+                    {{ __('Log Out') }}
+                </flux:button>
             </form>
         </div>
 
@@ -20,11 +19,10 @@
 
         <form method="post" action="{{ route('logout') }}" class="hidden lg:block">
             @csrf
-            <flux:menu.item type="submit" class="flex space-x-1.5 group text-xs">
-                <flux:icon.arrow-right-start-on-rectangle class="text-secondary-500  group-hover:text-danger-500" />
 
-                <span class="text-secondary-500 group-hover:text-danger-500">{{ __('Log Out') }}</span>
-            </flux:menu.item>
+            <flux:button type="submit" variant="ghost" icon="arrow-right-start-on-rectangle">
+                {{ __('Log Out') }}
+            </flux:button>
         </form>
     </div>
     <div class="flex-1 lg:col-span-6 pt-6">

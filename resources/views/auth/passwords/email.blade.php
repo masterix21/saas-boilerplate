@@ -1,17 +1,17 @@
-<x-split-layout>
-    <div>
-        <x-logo />
-
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">{{ __('Forgot your password?') }}</h2>
-        <p class="mt-2 text-sm/6 text-secondary-500">
+<x-split-layout heading="{{ __('Forgot your password?') }}">
+    <x-slot:subheading>
+        <p class="mt-2 text-sm/6 text-subheading">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </p>
-        <p class="mt-2 text-sm/6 text-secondary-500">
+
+        <p class="mt-2 text-sm/6 text-subheading">
             {{ __('Not a member?') }}
 
-            <a href="{{  route('register') }}" class="font-semibold text-primary-600 hover:text-primary-500">{{ __('Register today!') }}</a>
+            <a href="{{  route('register') }}" class="font-semibold text-primary-link">
+                {{ __('Register today!') }}
+            </a>
         </p>
-    </div>
+    </x-slot:subheading>
 
     <div class="mt-10">
         <div>
@@ -35,18 +35,9 @@
         </div>
 
         <div class="mt-10">
-            <div class="relative">
-                <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                    <div class="w-full border-t border-gray-200"></div>
-                </div>
-                <div class="relative flex justify-center text-sm/6 font-medium">
-                        <span class="bg-white px-6 text-gray-900">
-                            {{ __('Or') }}
-                        </span>
-                </div>
-            </div>
+            <flux:separator text="{{ __('Or') }}" />
 
-            <div class="mt-6 flex flex-col gap-4">
+            <div class="mt-8 flex flex-col gap-4">
                 <flux:button href="{{ route('login') }}" class="w-full">
                     {{ __('Sign in') }}
                 </flux:button>

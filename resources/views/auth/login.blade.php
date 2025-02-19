@@ -1,14 +1,9 @@
-<x-split-layout>
-    <div>
-        <x-logo />
+<x-split-layout heading="{{ __('Sign in to your account') }}">
+    <x-slot:subheading>
+        {{ __('Not a member?') }}
 
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">{{ __('Sign in to your account') }}</h2>
-        <p class="mt-2 text-sm/6 text-secondary-500">
-            {{ __('Not a member?') }}
-
-            <a href="{{ route('register') }}" class="font-semibold text-primary-600 hover:text-primary-500">{{ __('Register today!') }}</a>
-        </p>
-    </div>
+        <a href="{{ route('register') }}" class="font-semibold text-primary-link">{{ __('Register today!') }}</a>
+    </x-slot:subheading>
 
     <div class="mt-10">
         @session('status')
@@ -40,7 +35,7 @@
 
                     <div class="text-sm/6">
                         <a href="{{ route('password.request') }}"
-                           class="font-semibold text-primary-600 hover:text-primary-500">
+                           class="font-semibold text-primary-link">
                             {{__('Forgot password?') }}
                         </a>
                     </div>

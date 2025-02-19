@@ -1,17 +1,11 @@
-<x-split-layout>
+<x-split-layout heading="{{ __('Authentication code.') }}">
     <div x-data="{ recovery: {{ $errors->has('recovery_code') ? 'true' :'false'}} }">
         <div>
-            <x-logo />
-
-            <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">
-                {{ __('Authentication code.') }}
-            </h2>
-
-            <p x-show="! recovery" class="mt-2 text-sm/6 text-secondary-500">
+            <p x-show="! recovery" class="mt-2 text-sm/6 text-subheading">
                 {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
             </p>
 
-            <p x-show="recovery" class="mt-2 text-sm/6 text-secondary-500">
+            <p x-show="recovery" class="mt-2 text-sm/6 text-subheading">
                 {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
             </p>
         </div>
@@ -49,12 +43,12 @@
                 </template>
 
                 <a x-show="! recovery" x-on:click="recovery = ! recovery"
-                   class="block text-right text-sm text-primary-500 cursor-pointer hover:text-primary-900">
+                   class="block text-right text-sm cursor-pointer text-primary-link">
                     {{ __('Do you want to use a recovery code?') }}
                 </a>
 
                 <a x-show="recovery" x-on:click="recovery = ! recovery"
-                   class="block text-right text-sm text-primary-500 cursor-pointer hover:text-primary-900">
+                   class="block text-right text-sm cursor-pointer text-primary-link">
                     {{ __('Do you want to use an OTP?') }}
                 </a>
 

@@ -1,16 +1,5 @@
-<x-split-layout>
-    <div>
-        <x-logo />
-
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">
-            {{ __('Confirm your password.') }}
-        </h2>
-
-        <p class="mt-2 text-sm/6 text-secondary-500">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </p>
-    </div>
-
+<x-split-layout heading="{{ __('Confirm your password.') }}"
+                subheading="{{ __('This is a secure area of the application. Please confirm your password before continuing.') }}">
     <div class="mt-6">
         @session('status')
             <x-alerts.success :title="$value" />

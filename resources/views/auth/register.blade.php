@@ -1,14 +1,11 @@
-<x-split-layout>
-    <div>
-        <x-logo />
+<x-split-layout heading="{{ __('Register') }}">
+    <x-slot:subheading>
+        {{ __('Already registered?') }}
 
-        <h2 class="mt-8 text-2xl/9 font-bold tracking-tight text-secondary-900">{{ __('Register') }}</h2>
-        <p class="mt-2 text-sm/6 text-secondary-500">
-            {{ __('Already registered?') }}
-
-            <a href="{{ route('login') }}" class="font-semibold text-primary-600 hover:text-primary-500">{{ __('Log In') }}</a>
-        </p>
-    </div>
+        <a href="{{ route('login') }}" class="font-semibold text-primary-link">
+            {{ __('Log In') }}
+        </a>
+    </x-slot:subheading>
 
     <div class="mt-10">
         @session('status')
