@@ -13,7 +13,7 @@
 
     <!-- Styles / Scripts -->
     @yield('styles')
-    @fluxStyles
+    @fluxAppearance
     @vite(['resources/css/app.css'])
 </head>
 <body {{ $attributes->merge(['class' => 'font-sans antialiased bg-white h-full w-full']) }}>
@@ -29,7 +29,7 @@
         </script>
 
         <flux:modal name="manage-profile"
-                    class="!p-0 sm:min-w-[60%] sm:min-h-[60%] flex flex-col"
+                    class="p-0! sm:min-w-[60%] sm:min-h-[60%] flex flex-col"
                     :dismissible="false">
             <x-profile.manage />
         </flux:modal>

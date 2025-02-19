@@ -20,7 +20,7 @@
         </flux:navlist>
 
         <flux:modal.trigger name="manage-profile">
-            <flux:button variant="ghost" class="w-full text-left flex !justify-start">
+            <flux:button variant="ghost" class="w-full text-left flex justify-start!">
                 <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-8 w-8 rounded-full" />
 
                 <p x-text="$store.currentUser.display_label"></p>
