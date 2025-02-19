@@ -9,16 +9,17 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "forxer/laravel-gravatar": "^4.0",
+        "guava/filament-clusters": "^1.4",
         "laravel-lang/common": "^6.4",
         "laravel/fortify": "^1.25",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "livewire/flux": "^1.1",
-        "livewire/flux-pro": "^1.1",
+        "livewire/flux": "^2.0",
+        "livewire/flux-pro": "^2.0",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6",
         "masterix21/laravel-addressable": "^2.0",
-        "masterix21/laravel-subscriptions": "^0.0.9",
+        "masterix21/laravel-subscriptions": "dev-main",
         "spatie/laravel-login-link": "^1.6",
         "wire-elements/modal": "^2.0"
     },
@@ -87,6 +88,10 @@
         "flux-pro": {
             "type": "composer",
             "url": "https://composer.fluxui.dev"
+        },
+        "laravel-subscriptions": {
+            "type": "path",
+            "url": "../../Packages/laravel-subscriptions"
         },
         "masterix21": {
             "type": "composer",
