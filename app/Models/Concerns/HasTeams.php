@@ -47,7 +47,7 @@ trait HasTeams
     public function teams(): BelongsToMany
     {
         return $this
-            ->belongsToMany(Team::class, 'team_members', 'user_id', 'team_id')
+            ->belongsToMany(Team::class, 'team_members', 'member_id', 'team_id')
             ->using(TeamMember::class);
     }
 

@@ -3,6 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
+use App\Filament\Resources\UserResource\RelationManagers\OwnedTeamsRelationManager;
+use App\Filament\Resources\UserResource\RelationManagers\TeamsRelationManager;
 use App\Models\User;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Placeholder;
@@ -99,7 +101,7 @@ class UserResource extends Resource
     {
         return [
             'index'  => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
+            // 'create' => Pages\CreateUser::route('/create'),
             'edit'   => Pages\EditUser::route('/{record}/edit'),
         ];
     }
@@ -107,5 +109,13 @@ class UserResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return ['first_name', 'last_name', 'email'];
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            OwnedTeamsRelationManager::class,
+            TeamsRelationManager::class,
+        ];
     }
 }

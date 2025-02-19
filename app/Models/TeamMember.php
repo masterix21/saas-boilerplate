@@ -14,7 +14,7 @@ class TeamMember extends Pivot
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'member_id');
     }
 
     public function team(): BelongsTo

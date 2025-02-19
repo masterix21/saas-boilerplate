@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId(User::class)
+            $table->foreignIdFor(User::class, 'member_id')
                     ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
-            $table->foreignId(Team::class)
+            $table->foreignIdFor(Team::class)
                 ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->timestamps();

@@ -6,7 +6,7 @@ use App\Actions\Teams\InviteUser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use LucaLongo\Subscriptions\Models\Concerns\HasSubscriptions;
 use Masterix21\Addressable\Models\Concerns\HasAddresses;
 use Masterix21\Addressable\Models\Concerns\HasBillingAddresses;
 use Masterix21\Addressable\Models\Concerns\HasShippingAddresses;
@@ -16,6 +16,7 @@ class Team extends Model
     use HasAddresses;
     use HasBillingAddresses;
     use HasShippingAddresses;
+    use HasSubscriptions;
 
     protected $fillable = [
         'name',
@@ -31,7 +32,7 @@ class Team extends Model
     public function members(): BelongsToMany
     {
         return $this
-            ->belongsToMany(User::class, 'team_members', 'team_id', 'user_id')
+            ->belongsToMany(User::class, 'team_members', 'team_id', 'member_id')
             ->using(TeamMember::class);
     }
 
