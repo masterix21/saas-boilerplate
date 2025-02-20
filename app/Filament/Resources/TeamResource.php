@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TeamResource\Pages;
 use App\Filament\Resources\TeamResource\RelationManagers\MembersRelationManager;
+use App\Filament\Resources\TeamResource\RelationManagers\SubscriptionsRelationManager;
 use App\Models\Team;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
@@ -87,6 +88,7 @@ class TeamResource extends Resource
     {
         return [
             MembersRelationManager::class,
+            SubscriptionsRelationManager::class,
         ];
     }
 

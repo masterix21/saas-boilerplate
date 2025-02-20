@@ -13,6 +13,6 @@ return [
      * Subscriber must implements the contract \LucaLongo\Subscriptions\Contracts\Subscriber
      */
     'subscriber' => [
-        \Illuminate\Foundation\Auth\User::class,
+        \App\Models\Team::class,
     ],
 ];
