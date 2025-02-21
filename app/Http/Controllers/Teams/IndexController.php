@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
 use App\Models\Team;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(): View|RedirectResponse
     {
         if (! request()->user()->current_team_id) {
             return $this->guessCurrentTeam();
@@ -16,7 +18,7 @@ class IndexController extends Controller
         return view('teams.index');
     }
 
-    protected function guessCurrentTeam()
+    protected function guessCurrentTeam(): RedirectResponse
     {
         $user = request()->user();
         $teams = $user->allTeams();

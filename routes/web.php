@@ -15,7 +15,9 @@ Route::name('app.')
         Route::get('subscribe', fn () => 'subscribe')->name('subscribe');
 
         Route::get('teams', \App\Http\Controllers\Teams\IndexController::class)->name('teams');
-        Route::view('teams/create', 'teams.create')->name('teams.create');
+
+        Route::get('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'show'])->name('teams.create');
+        Route::post('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'create']);
 
         Route::group(['middleware' => ['team-members', 'subscribed']], function () {
             Route::view('/', 'dashboard')->name('dashboard');
