@@ -11,5 +11,14 @@ Route::name('app.')
     ->middleware(['auth', 'verified', 'no-cowboys'])
     ->prefix('/app')
     ->group(function () {
-        Route::view('/', 'dashboard')->name('dashboard');
+
+        Route::get('subscribe', fn () => 'subscribe')->name('subscribe');
+
+        Route::get('teams', \App\Http\Controllers\Teams\IndexController::class)->name('teams');
+        Route::view('teams/create', 'teams.create')->name('teams.create');
+
+        Route::group(['middleware' => ['team-members', 'subscribed']], function () {
+            Route::view('/', 'dashboard')->name('dashboard');
+        });
+
     });

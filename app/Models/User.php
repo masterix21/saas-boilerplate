@@ -20,7 +20,7 @@ use LucaLongo\Subscriptions\Models\Concerns\HasSubscriptions;
 class User extends Authenticatable implements
     MustVerifyEmail,
     TeamMate,
-    HasPersonalTeam,
+    //HasPersonalTeam,
     DisplayLabel,
     FilamentUser,
     HasName

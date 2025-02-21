@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Middleware\CowboysOnlyMiddleware;
+use App\Http\Middleware\EnsureTeamIsSubscribed;
+use App\Http\Middleware\EnsureUserHasCurrentTeamMiddleware;
 use App\Http\Middleware\NoCowboysMiddleware;
 use App\Http\Middleware\SetLanguageMiddleware;
 use Illuminate\Foundation\Application;
@@ -21,6 +23,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'no-cowboys' => NoCowboysMiddleware::class,
             'cowboys-only' => CowboysOnlyMiddleware::class,
+            'team-members' => EnsureUserHasCurrentTeamMiddleware::class,
+            'subscribed' => EnsureTeamIsSubscribed::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

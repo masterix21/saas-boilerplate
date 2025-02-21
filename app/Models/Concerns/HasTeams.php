@@ -19,13 +19,18 @@ trait HasTeams
         }
 
         static::created(static function ($user) {
-            if ($user->ownedTeams()->exists()) {
+            if (! $user->ownedTeams()->exists()) {
+                $user->ownedTeams()->create(['name' => __(":first_name's Team", [
+                    'first_name' => $user->first_name,
+                ])]);
+            }
+
+            if ($user->current_team_id) {
                 return;
             }
 
-            $user->ownedTeams()->create(['name' => __(":first_name's Team", [
-                'first_name' => $user->first_name,
-            ])]);
+            $user->current_team_id = $user->ownedTeams()->first()->getKey();
+            $user->save();
         });
     }
 
