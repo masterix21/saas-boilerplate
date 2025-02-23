@@ -12,6 +12,8 @@ class CreateTeam
 {
     public function create(array $input, User $user): Team
     {
+        return redirect()->back()->withErrors(['message' => __('Something went wrong')]);
+
         Validator::make(
             data: $input,
             rules: [

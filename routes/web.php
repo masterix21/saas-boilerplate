@@ -7,6 +7,10 @@ Route::redirect('/', '/app')->middleware('auth');
 Route::get('/terms', fn () => 'terms')->name('terms')->middleware('password.confirm');
 Route::get('/policy', fn () => 'policy')->name('policy');
 
+Route::view('profile', 'profile')
+    ->name('profile')
+    ->middleware('auth');
+
 Route::name('app.')
     ->middleware(['auth', 'verified', 'no-cowboys'])
     ->prefix('/app')
