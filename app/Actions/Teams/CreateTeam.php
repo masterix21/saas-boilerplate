@@ -4,13 +4,14 @@ namespace App\Actions\Teams;
 
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CreateTeam
 {
-    public function create(array $input, User $user): Team
+    public function create(array $input, User $user): Team|RedirectResponse
     {
         return redirect()->back()->withErrors(['message' => __('Something went wrong')]);
 
@@ -18,10 +19,10 @@ class CreateTeam
             data: $input,
             rules: [
                 'name' => ['required', 'string', 'max:255'],
-                'vat_no' => ['required_without:tax_code', 'string', 'max:255'],
-                'tax_code' => ['required_without:vat_no', 'string', 'max:255'],
+                'vat_no' => ['required_without:tax_code', 'nullable', 'string', 'max:255'],
+                'tax_code' => ['required_without:vat_no', 'nullable', 'string', 'max:255'],
                 'billing_address.street_address1' => ['required', 'string', 'max:255'],
-                'billing_address.street_address2' => ['required', 'string', 'max:255'],
+                'billing_address.street_address2' => ['nullable', 'string', 'max:255'],
                 'billing_address.zip' => ['required', 'string', 'max:255'],
                 'billing_address.city' => ['required', 'string', 'max:255'],
                 'billing_address.state' => ['required', 'string', 'max:255'],
