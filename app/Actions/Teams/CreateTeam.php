@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Validator;
 
 class CreateTeam
 {
-    public function create(array $input, User $user): Team|RedirectResponse
+    public function create(array $input, User $user): Team
     {
-        return redirect()->back()->withErrors(['message' => __('Something went wrong')]);
-
         Validator::make(
             data: $input,
             rules: [
@@ -26,7 +24,7 @@ class CreateTeam
                 'billing_address.zip' => ['required', 'string', 'max:255'],
                 'billing_address.city' => ['required', 'string', 'max:255'],
                 'billing_address.state' => ['required', 'string', 'max:255'],
-                'billing_address.country' => ['required', 'string', 'max:255'],
+                'billing_address.country' => ['required', 'string', 'max:4'],
             ],
             attributes: [
                 'vat_no' => __('vat no'),
@@ -51,11 +49,13 @@ class CreateTeam
             $user->current_team_id = $team->getKey();
             $user->save();
 
+            DB::commit();
+
             return $team;
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return redirect()->back()->withErrors(['message' => __('Something went wrong')]);
+            throw $e;
         }
     }
 }

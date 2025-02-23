@@ -4,6 +4,12 @@
     <form class="mt-10 flex flex-col space-y-3" method="post" action="{{ route('app.teams.create') }}">
         @csrf
 
+        @error('message')
+            <x-alerts.danger title="{{ __('Error') }}">
+                {{ $message }}
+            </x-alerts.danger>
+        @enderror
+
         <flux:field>
             <flux:label>{{ __('Name') }}</flux:label>
             <flux:input name="name" autofocus value="{{ old('name') }}" />
