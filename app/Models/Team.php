@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Actions\Teams\InviteUser;
 use App\Models\Concerns\DisplayLabel;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -16,6 +17,7 @@ use Masterix21\Addressable\Models\Concerns\HasShippingAddresses;
 
 class Team extends Model implements Subscriber, DisplayLabel
 {
+    use HasFactory;
     use HasAddresses;
     use HasBillingAddresses;
     use HasShippingAddresses;

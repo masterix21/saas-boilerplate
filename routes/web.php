@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teams\SubscribePlanController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/app')->middleware('auth');
@@ -16,7 +17,9 @@ Route::name('app.')
     ->prefix('/app')
     ->group(function () {
 
-        Route::get('subscribe', fn () => 'subscribe')->name('subscribe');
+        Route::get('subscribe', [SubscribePlanController::class, 'index'])
+            ->middleware('team-members')
+            ->name('subscribe');
 
         Route::get('teams', \App\Http\Controllers\Teams\IndexController::class)->name('teams');
 

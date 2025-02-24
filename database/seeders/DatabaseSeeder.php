@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Team;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\AddressFactory;
 use Illuminate\Database\Seeder;
+use LucaLongo\Subscriptions\Models\Plan;
+use Masterix21\Addressable\Models\Address;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,13 +26,24 @@ class DatabaseSeeder extends Seeder
             'language' => 'it',
         ]);
 
-        User::create([
-            'first_name' => 'Mario',
-            'last_name' => 'Rossi',
-            'email' => 'm.rossi@example.org',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
-            'language' => 'it',
+        if (app()->environment('production')) {
+            return;
+        }
+
+        tap(User::factory(1)->createOne(), function (User $user) {
+            /** @var Team $team */
+            $team = Team::factory(1)->ownedBy($user)->createOne();
+
+            $user->currentTeam()->associate($team)->save();
+
+            AddressFactory::new()->assignTo($team)->createOne();
+        });
+
+
+        User::factory(10)->create();
+
+        $this->call([
+            PlanSeeder::class,
         ]);
     }
 }

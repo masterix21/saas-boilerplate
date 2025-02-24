@@ -54,9 +54,19 @@
                 <flux:separator text="{{ __('Local environment only') }}" />
 
                 <div class="mt-6 flex flex-col gap-4">
-                    <x-login-link class="border rounded-sm px-3 py-1.5 w-full text-danger-500 cursor-pointer" email="l.longo@ambita.it" label="Luca Longo (cowboy)" />
+                    @php
+                        $users = \App\Models\User::all();
+                    @endphp
 
-                    <x-login-link class="border rounded-sm px-3 py-1.5 w-full text-danger-500 cursor-pointer" email="m.rossi@example.org" label="Mario Rossi (normal user)" />
+                    @foreach ($users as $user)
+                        <x-login-link @class([
+                                          "border rounded-sm px-3 py-1.5 w-full cursor-pointer",
+                                          "text-danger-500" => str($user->email)->endsWith('@ambita.it'),
+                                          "text-success-500" => $user->current_team_id
+                                      ])
+                                      :email="$user->email"
+                                      :label="$user->display_label" />
+                    @endforeach
                 </div>
             </div>
         @endenv
