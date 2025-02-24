@@ -12,9 +12,9 @@ class TeamFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'       => $this->faker->name(),
-            'vat_no'     => $this->faker->word(),
-            'tax_code'   => $this->faker->word(),
+            'name' => $this->faker->name(),
+            'vat_no' => $this->faker->word(),
+            'tax_code' => $this->faker->word(),
             'owner_id' => null,
         ];
     }

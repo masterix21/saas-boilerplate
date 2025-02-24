@@ -15,11 +15,11 @@ use Masterix21\Addressable\Models\Concerns\HasAddresses;
 use Masterix21\Addressable\Models\Concerns\HasBillingAddresses;
 use Masterix21\Addressable\Models\Concerns\HasShippingAddresses;
 
-class Team extends Model implements Subscriber, DisplayLabel
+class Team extends Model implements DisplayLabel, Subscriber
 {
-    use HasFactory;
     use HasAddresses;
     use HasBillingAddresses;
+    use HasFactory;
     use HasShippingAddresses;
     use HasSubscriptions;
 

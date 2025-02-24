@@ -3,19 +3,19 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FeatureResource\Pages;
-use App\Filament\Resources\FeatureResource\RelationManagers;
-use LucaLongo\Subscriptions\Filament\Forms\FeatureForm;
-use LucaLongo\Subscriptions\Filament\Tables\FeatureTable;
-use LucaLongo\Subscriptions\Models\Feature;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
+use LucaLongo\Subscriptions\Filament\Forms\FeatureForm;
+use LucaLongo\Subscriptions\Filament\Tables\FeatureTable;
+use LucaLongo\Subscriptions\Models\Feature;
 
 class FeatureResource extends Resource
 {
     protected static ?string $model = Feature::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
+
     public static function getNavigationGroup(): ?string
     {
         return __('Plans');

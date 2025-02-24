@@ -4,7 +4,6 @@ namespace App\Actions\Teams;
 
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;

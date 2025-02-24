@@ -13,6 +13,5 @@ class InviteUser
             return true;
         }
 
-
     }
 }

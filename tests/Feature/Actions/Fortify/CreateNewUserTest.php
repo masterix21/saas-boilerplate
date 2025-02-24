@@ -9,13 +9,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 uses(RefreshDatabase::class);
 
 test('it creates a user with valid input', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $input = [
-        'first_name'            => 'John',
-        'last_name'             => 'Doe',
-        'email'                 => 'john.doe@example.com',
-        'password'              => 'StrongPassword123!',
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'email' => 'john.doe@example.com',
+        'password' => 'StrongPassword123!',
         'password_confirmation' => 'StrongPassword123!',
     ];
 
@@ -30,13 +30,13 @@ test('it creates a user with valid input', function () {
 test('it fails if the email is already taken', function () {
     User::factory()->create(['email' => 'john.doe@example.com']);
 
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $input = [
-        'first_name'            => 'John',
-        'last_name'             => 'Doe',
-        'email'                 => 'john.doe@example.com',
-        'password'              => 'StrongPassword123!',
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'email' => 'john.doe@example.com',
+        'password' => 'StrongPassword123!',
         'password_confirmation' => 'StrongPassword123!',
     ];
 
@@ -44,13 +44,13 @@ test('it fails if the email is already taken', function () {
 })->throws('Illuminate\Validation\ValidationException');
 
 test('it fails if the password does not meet requirements', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $input = [
-        'first_name'            => 'John',
-        'last_name'             => 'Doe',
-        'email'                 => 'john.doe@example.com',
-        'password'              => 'short',
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'email' => 'john.doe@example.com',
+        'password' => 'short',
         'password_confirmation' => 'short',
     ];
 
@@ -58,13 +58,13 @@ test('it fails if the password does not meet requirements', function () {
 })->throws('Illuminate\Validation\ValidationException');
 
 test('it fails if required fields are missing', function () {
-    $action = new CreateNewUser();
+    $action = new CreateNewUser;
 
     $input = [
-        'first_name'            => '',
-        'last_name'             => '',
-        'email'                 => '',
-        'password'              => '',
+        'first_name' => '',
+        'last_name' => '',
+        'email' => '',
+        'password' => '',
         'password_confirmation' => '',
     ];
 

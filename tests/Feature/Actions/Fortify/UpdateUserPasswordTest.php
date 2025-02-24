@@ -6,16 +6,18 @@ use App\Actions\Fortify\UpdateUserPassword;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
+use function Pest\Laravel\actingAs;
+
 test('password is updated successfully when valid current and new password are provided', function () {
     $user = User::factory()->create([
-        'password' => Hash::make('current-password'),
+        'password' => Hash::make('password'),
     ]);
 
-    $action = new UpdateUserPassword();
+    actingAs($user);
 
-    $action->update($user, [
-        'current_password'      => 'current-password',
-        'password'              => 'new-StrongPassword123',
+    (new UpdateUserPassword)->update($user, [
+        'current_password' => 'password',
+        'password' => 'new-StrongPassword123',
         'password_confirmation' => 'new-StrongPassword123',
     ]);
 
@@ -27,13 +29,13 @@ test('validation fails when current password is incorrect', function () {
         'password' => Hash::make('current-password'),
     ]);
 
-    $action = new UpdateUserPassword();
+    $action = new UpdateUserPassword;
 
     $this->expectExceptionMessage(__('The provided password does not match your current password.'));
 
     $action->update($user, [
-        'current_password'      => 'wrong-password',
-        'password'              => 'new-StrongPassword123',
+        'current_password' => 'wrong-password',
+        'password' => 'new-StrongPassword123',
         'password_confirmation' => 'new-StrongPassword123',
     ]);
 });
@@ -43,13 +45,13 @@ test('validation fails when new password does not follow rules', function () {
         'password' => Hash::make('current-password'),
     ]);
 
-    $action = new UpdateUserPassword();
+    $action = new UpdateUserPassword;
 
     $this->expectException(\Illuminate\Validation\ValidationException::class);
 
     $action->update($user, [
-        'current_password'      => 'current-password',
-        'password'              => 'short',
+        'current_password' => 'current-password',
+        'password' => 'short',
         'password_confirmation' => 'short',
     ]);
 });
@@ -59,13 +61,13 @@ test('validation fails when password confirmation does not match', function () {
         'password' => Hash::make('current-password'),
     ]);
 
-    $action = new UpdateUserPassword();
+    $action = new UpdateUserPassword;
 
     $this->expectException(\Illuminate\Validation\ValidationException::class);
 
     $action->update($user, [
-        'current_password'      => 'current-password',
-        'password'              => 'new-StrongPassword123',
+        'current_password' => 'current-password',
+        'password' => 'new-StrongPassword123',
         'password_confirmation' => 'differentPassword123',
     ]);
 });

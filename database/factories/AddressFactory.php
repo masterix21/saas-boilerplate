@@ -13,18 +13,18 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'addressable_id'   => $this->faker->randomNumber(),
+            'addressable_id' => $this->faker->randomNumber(),
             'addressable_type' => $this->faker->word(),
-            'label'            => $this->faker->word(),
-            'is_primary'       => $this->faker->boolean(),
-            'is_billing'       => $this->faker->boolean(),
-            'is_shipping'      => $this->faker->boolean(),
-            'street_address1'  => $this->faker->address(),
-            'street_address2'  => $this->faker->address(),
-            'zip'              => $this->faker->postcode(),
-            'city'             => $this->faker->city(),
-            'state'            => $this->faker->word(),
-            'country'          => $this->faker->countryCode(),
+            'label' => $this->faker->word(),
+            'is_primary' => $this->faker->boolean(),
+            'is_billing' => $this->faker->boolean(),
+            'is_shipping' => $this->faker->boolean(),
+            'street_address1' => $this->faker->address(),
+            'street_address2' => $this->faker->address(),
+            'zip' => $this->faker->postcode(),
+            'city' => $this->faker->city(),
+            'state' => $this->faker->word(),
+            'country' => $this->faker->countryCode(),
         ];
     }
 

@@ -3,8 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PlanResource\Pages;
-use App\Filament\Resources\PlanResource\RelationManagers;
-use App\Filament\Resources\PlanResource\RelationManagers\FeaturesRelationManager;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;

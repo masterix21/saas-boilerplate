@@ -12,6 +12,7 @@ use Livewire\Component;
 trait HasConfirmsPassword
 {
     public ?string $confirmableId = null;
+
     public string $confirmablePassword = '';
 
     /**

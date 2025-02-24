@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignIdFor(User::class, 'member_id')
-                    ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+                ->constrained()->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->foreignIdFor(Team::class)
                 ->constrained()->cascadeOnUpdate()->cascadeOnDelete();

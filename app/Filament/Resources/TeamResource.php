@@ -32,25 +32,25 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                      Select::make('owner_id')
-                          ->relationship('owner', 'email')
-                          ->searchable()
-                          ->required(),
+                Select::make('owner_id')
+                    ->relationship('owner', 'email')
+                    ->searchable()
+                    ->required(),
 
-                      TextInput::make('name')
-                          ->required(),
+                TextInput::make('name')
+                    ->required(),
 
-                      TextInput::make('vat_no'),
+                TextInput::make('vat_no'),
 
-                      TextInput::make('tax_code'),
+                TextInput::make('tax_code'),
 
-                      Placeholder::make('created_at')
-                          ->label('Created Date')
-                          ->content(fn(?Team $record): string => $record?->created_at?->diffForHumans() ?? '-'),
+                Placeholder::make('created_at')
+                    ->label('Created Date')
+                    ->content(fn (?Team $record): string => $record?->created_at?->diffForHumans() ?? '-'),
 
-                      Placeholder::make('updated_at')
-                          ->label('Last Modified Date')
-                          ->content(fn(?Team $record): string => $record?->updated_at?->diffForHumans() ?? '-'),
+                Placeholder::make('updated_at')
+                    ->label('Last Modified Date')
+                    ->content(fn (?Team $record): string => $record?->updated_at?->diffForHumans() ?? '-'),
             ]);
     }
 
@@ -95,9 +95,9 @@ class TeamResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListTeams::route('/'),
+            'index' => Pages\ListTeams::route('/'),
             'create' => Pages\CreateTeam::route('/create'),
-            'edit'   => Pages\EditTeam::route('/{record}/edit'),
+            'edit' => Pages\EditTeam::route('/{record}/edit'),
         ];
     }
 

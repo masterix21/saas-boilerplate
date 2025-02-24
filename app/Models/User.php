@@ -18,18 +18,14 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use LucaLongo\Subscriptions\Models\Concerns\HasSubscriptions;
 
 class User extends Authenticatable implements
-    MustVerifyEmail,
-    TeamMate,
-    //HasPersonalTeam,
-    DisplayLabel,
-    FilamentUser,
-    HasName
+    // HasPersonalTeam,
+    DisplayLabel, FilamentUser, HasName, MustVerifyEmail, TeamMate
 {
     use HasFactory;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
     use HasSubscriptions;
     use HasTeams;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     protected $fillable = [
         'first_name',

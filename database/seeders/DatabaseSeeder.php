@@ -9,7 +9,6 @@ use Database\Factories\AddressFactory;
 use Illuminate\Database\Seeder;
 use LucaLongo\Subscriptions\Actions\CreateSubscription;
 use LucaLongo\Subscriptions\Models\Plan;
-use Masterix21\Addressable\Models\Address;
 
 class DatabaseSeeder extends Seeder
 {
@@ -57,7 +56,6 @@ class DatabaseSeeder extends Seeder
 
             AddressFactory::new()->assignTo($team)->createOne();
         });
-
 
         User::factory(3)->create();
     }
