@@ -7,6 +7,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\AddressFactory;
 use Illuminate\Database\Seeder;
+use LucaLongo\Subscriptions\Actions\CreateSubscription;
 use LucaLongo\Subscriptions\Models\Plan;
 use Masterix21\Addressable\Models\Address;
 
@@ -30,6 +31,24 @@ class DatabaseSeeder extends Seeder
             return;
         }
 
+        $this->call([
+            PlanSeeder::class,
+        ]);
+
+        tap(User::factory(1)->createOne(), function (User $user) {
+            /** @var Team $team */
+            $team = Team::factory(1)->ownedBy($user)->createOne();
+
+            $user->currentTeam()->associate($team)->save();
+
+            AddressFactory::new()->assignTo($team)->createOne();
+
+            (new CreateSubscription)->execute(
+                plan: Plan::first(),
+                subscriber: $team,
+            );
+        });
+
         tap(User::factory(1)->createOne(), function (User $user) {
             /** @var Team $team */
             $team = Team::factory(1)->ownedBy($user)->createOne();
@@ -41,9 +60,5 @@ class DatabaseSeeder extends Seeder
 
 
         User::factory(3)->create();
-
-        $this->call([
-            PlanSeeder::class,
-        ]);
     }
 }

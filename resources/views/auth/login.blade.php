@@ -55,14 +55,17 @@
 
                 <div class="mt-6 flex flex-col gap-4">
                     @php
-                        $users = \App\Models\User::all();
+                        $users = \App\Models\User::query()
+                            ->with(['currentTeam', 'currentTeam.activeSubscriptions'])
+                            ->get();
                     @endphp
 
                     @foreach ($users as $user)
                         <x-login-link @class([
                                           "border rounded-sm px-3 py-1.5 w-full cursor-pointer",
-                                          "text-danger-500" => str($user->email)->endsWith('@ambita.it'),
-                                          "text-success-500" => $user->current_team_id
+                                          "text-info-500" => str($user->email)->endsWith('@ambita.it'),
+                                          "text-success-500" => $user->current_team_id && $user->currentTeam->activeSubscriptions->isNotEmpty(),
+                                          "text-warning-500" => $user->current_team_id && $user->currentTeam->activeSubscriptions->isEmpty()
                                       ])
                                       :email="$user->email"
                                       :label="$user->display_label" />

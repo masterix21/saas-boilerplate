@@ -1235,16 +1235,16 @@
         },
         {
             "name": "dragon-code/contracts",
-            "version": "2.23.0",
+            "version": "2.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/contracts.git",
-                "reference": "44dbad923f152e0dc2699fbac2d33b65dd6a8f7d"
+                "reference": "c21ea4fc0a399bd803a2805a7f2c989749083896"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/contracts/zipball/44dbad923f152e0dc2699fbac2d33b65dd6a8f7d",
-                "reference": "44dbad923f152e0dc2699fbac2d33b65dd6a8f7d",
+                "url": "https://api.github.com/repos/TheDragonCode/contracts/zipball/c21ea4fc0a399bd803a2805a7f2c989749083896",
+                "reference": "c21ea4fc0a399bd803a2805a7f2c989749083896",
                 "shasum": ""
             },
             "require": {
@@ -1257,7 +1257,7 @@
                 "andrey-helldar/contracts": "*"
             },
             "require-dev": {
-                "illuminate/database": "^10.0 || ^11.0",
+                "illuminate/database": "^10.0 || ^11.0 || ^12.0",
                 "phpdocumentor/reflection-docblock": "^5.0"
             },
             "type": "library",
@@ -1291,28 +1291,24 @@
                     "type": "boosty"
                 },
                 {
-                    "url": "https://www.donationalerts.com/r/dragon_code",
-                    "type": "donationalerts"
-                },
-                {
                     "url": "https://yoomoney.ru/to/410012608840929",
                     "type": "yoomoney"
                 }
             ],
-            "time": "2024-03-11T20:15:12+00:00"
+            "time": "2025-02-23T23:11:50+00:00"
         },
         {
             "name": "dragon-code/pretty-array",
-            "version": "v4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/pretty-array.git",
-                "reference": "6c84e2454491b414efbd37985c322712cdf9012f"
+                "reference": "b94034d92172a5d14a578822d68b2a8f8b5388e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/pretty-array/zipball/6c84e2454491b414efbd37985c322712cdf9012f",
-                "reference": "6c84e2454491b414efbd37985c322712cdf9012f",
+                "url": "https://api.github.com/repos/TheDragonCode/pretty-array/zipball/b94034d92172a5d14a578822d68b2a8f8b5388e0",
+                "reference": "b94034d92172a5d14a578822d68b2a8f8b5388e0",
                 "shasum": ""
             },
             "require": {
@@ -1323,7 +1319,7 @@
                 "php": "^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.6 || ^10.2"
+                "phpunit/phpunit": "^9.6 || ^10.0 || ^11.0 || ^12.0"
             },
             "suggest": {
                 "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
@@ -1342,7 +1338,7 @@
                 {
                     "name": "Andrey Helldar",
                     "email": "helldar@dragon-code.pro",
-                    "homepage": "https://github.com/andrey-helldar"
+                    "homepage": "https://dragon-code.pro"
                 }
             ],
             "description": "Simple conversion of an array to a pretty view",
@@ -1364,32 +1360,24 @@
                     "type": "boosty"
                 },
                 {
-                    "url": "https://github.com/sponsors/TheDragonCode",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/dragon-code",
-                    "type": "open_collective"
-                },
-                {
                     "url": "https://yoomoney.ru/to/410012608840929",
                     "type": "yoomoney"
                 }
             ],
-            "time": "2023-06-02T11:37:44+00:00"
+            "time": "2025-02-24T15:35:24+00:00"
         },
         {
             "name": "dragon-code/support",
-            "version": "6.15.2",
+            "version": "6.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/support.git",
-                "reference": "33679b6736619751a9ac8935f955f5a9f73ee996"
+                "reference": "ab9b657a307e75f6ba5b2b39e1e45207dc1a065a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/33679b6736619751a9ac8935f955f5a9f73ee996",
-                "reference": "33679b6736619751a9ac8935f955f5a9f73ee996",
+                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/ab9b657a307e75f6ba5b2b39e1e45207dc1a065a",
+                "reference": "ab9b657a307e75f6ba5b2b39e1e45207dc1a065a",
                 "shasum": ""
             },
             "require": {
@@ -1408,8 +1396,8 @@
                 "andrey-helldar/support": "*"
             },
             "require-dev": {
-                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0",
-                "phpunit/phpunit": "^9.6 || ^11.0",
+                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0 || ^12.0",
+                "phpunit/phpunit": "^9.6 || ^11.0 || ^12.0",
                 "symfony/var-dumper": "^6.0 || ^7.0"
             },
             "suggest": {
@@ -1471,7 +1459,7 @@
                     "type": "yoomoney"
                 }
             ],
-            "time": "2025-02-17T10:17:56+00:00"
+            "time": "2025-02-24T14:01:52+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -3528,16 +3516,16 @@
         },
         {
             "name": "laravel-lang/moonshine",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/moonshine.git",
-                "reference": "3fff17d1d5999f1964e522609db82463423e9e25"
+                "reference": "573e1568d1e7819ed5799dcac367080accdb7ee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/moonshine/zipball/3fff17d1d5999f1964e522609db82463423e9e25",
-                "reference": "3fff17d1d5999f1964e522609db82463423e9e25",
+                "url": "https://api.github.com/repos/Laravel-Lang/moonshine/zipball/573e1568d1e7819ed5799dcac367080accdb7ee9",
+                "reference": "573e1568d1e7819ed5799dcac367080accdb7ee9",
                 "shasum": ""
             },
             "require": {
@@ -3590,9 +3578,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/moonshine/issues",
-                "source": "https://github.com/Laravel-Lang/moonshine/tree/1.1.0"
+                "source": "https://github.com/Laravel-Lang/moonshine/tree/1.1.1"
             },
-            "time": "2025-02-17T10:31:11+00:00"
+            "time": "2025-02-23T18:22:17+00:00"
         },
         {
             "name": "laravel-lang/native-country-names",
@@ -4043,16 +4031,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.43.2",
+            "version": "v11.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21"
+                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/99d1573698abc42222f04d25fcd5b213d0eedf21",
-                "reference": "99d1573698abc42222f04d25fcd5b213d0eedf21",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
+                "reference": "e9a33da34815ac1ed46c7e4c477a775f4592f0a7",
                 "shasum": ""
             },
             "require": {
@@ -4254,7 +4242,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-02-19T21:53:48+00:00"
+            "time": "2025-02-24T13:08:54+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -5433,7 +5421,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../Packages/laravel-subscriptions",
-                "reference": "2b3e7702fa365da4a8eeeccefbe8c47202c5c72f"
+                "reference": "0510265e0cfe8e9918e29d92f070900137245848"
             },
             "require": {
                 "illuminate/contracts": "^10.0||^11.0",
@@ -10366,16 +10354,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.15.0",
+            "version": "v3.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "77cca4a1162d45e1fe64e7a71b4a3031656b6c86"
+                "reference": "62b222166a9505926d54fadf7663bb4a26ed9014"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/77cca4a1162d45e1fe64e7a71b4a3031656b6c86",
-                "reference": "77cca4a1162d45e1fe64e7a71b4a3031656b6c86",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/62b222166a9505926d54fadf7663bb4a26ed9014",
+                "reference": "62b222166a9505926d54fadf7663bb4a26ed9014",
                 "shasum": ""
             },
             "require": {
@@ -10385,6 +10373,9 @@
                 "php": "^8.1",
                 "php-debugbar/php-debugbar": "~2.1.1",
                 "symfony/finder": "^6|^7"
+            },
+            "conflict": {
+                "maximebf/debugbar": "*"
             },
             "require-dev": {
                 "mockery/mockery": "^1.3.3",
@@ -10435,7 +10426,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.15.0"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.15.1"
             },
             "funding": [
                 {
@@ -10447,7 +10438,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-21T15:00:44+00:00"
+            "time": "2025-02-24T10:48:28+00:00"
         },
         {
             "name": "brianium/paratest",
@@ -11813,16 +11804,16 @@
         },
         {
             "name": "php-debugbar/php-debugbar",
-            "version": "v2.1.5",
+            "version": "v2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-debugbar/php-debugbar.git",
-                "reference": "3f589bbbaed53039d9699702c2908148647c27a1"
+                "reference": "16fa68da5617220594aa5e33fa9de415f94784a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/3f589bbbaed53039d9699702c2908148647c27a1",
-                "reference": "3f589bbbaed53039d9699702c2908148647c27a1",
+                "url": "https://api.github.com/repos/php-debugbar/php-debugbar/zipball/16fa68da5617220594aa5e33fa9de415f94784a0",
+                "reference": "16fa68da5617220594aa5e33fa9de415f94784a0",
                 "shasum": ""
             },
             "require": {
@@ -11877,9 +11868,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-debugbar/php-debugbar/issues",
-                "source": "https://github.com/php-debugbar/php-debugbar/tree/v2.1.5"
+                "source": "https://github.com/php-debugbar/php-debugbar/tree/v2.1.6"
             },
-            "time": "2025-02-21T13:02:05+00:00"
+            "time": "2025-02-21T17:47:03+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
