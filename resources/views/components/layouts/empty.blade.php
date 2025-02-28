@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @yield('meta')
+    {!! $meta ?? '' !!}
 
     <title>{{ config('app.name') }}</title>
 
@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     <!-- Styles / Scripts -->
-    @yield('styles')
+    {!! $styles ?? '' !!}
     @fluxAppearance
     @vite(['resources/css/app.css'])
 </head>
-<body {{ $attributes->merge(['class' => 'font-sans antialiased h-full w-full']) }}>
+<body {{ $attributes->merge(['class' => 'h-full font-sans antialiased']) }}>
     {{ $slot }}
 
     @vite(['resources/js/app.js'])
@@ -39,11 +39,11 @@
         <flux:toast />
     @endpersist
 
-    @yield('modals')
+    {!! $modals ?? '' !!}
 
     @fluxScripts
     @livewire('wire-elements-modal')
 
-    @yield('scripts')
+    {!! $scripts ?? '' !!}
 </body>
 </html>

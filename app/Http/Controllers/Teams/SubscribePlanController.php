@@ -14,10 +14,11 @@ class SubscribePlanController extends Controller
             ->active()
             ->visible()
             ->get()
-            ->sortBy('name');
+            ->sortBy('name')
+            ->groupBy('invoice_interval');
 
         return view('teams.subscribe-plan', [
-            'plans' => $plans,
+            'groupedPlans' => $plans,
         ]);
     }
 }
