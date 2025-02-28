@@ -90,6 +90,10 @@
                     </div>
                 </template>
             @endforeach
+
+            <p class="text-center mt-10 text-secondary-900">
+                {{ __("All prices exclude taxes: they will be calculated and displayed before your payment.") }}
+            </p>
         </div>
     </div>
 
