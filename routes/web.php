@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Teams\SubscribePlanController;
+use App\Http\Controllers\Subscriptions\SubscribePlanController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/app')->middleware('auth');
@@ -20,6 +20,10 @@ Route::name('app.')
         Route::get('subscribe', [SubscribePlanController::class, 'index'])
             ->middleware('team-members')
             ->name('subscribe');
+
+        Route::get('subscribe/{plan}/{gateway}', \App\Http\Controllers\Subscriptions\BuyController::class)
+            ->middleware('team-members')
+            ->name('subscription-payment');
 
         Route::get('teams', \App\Http\Controllers\Teams\IndexController::class)->name('teams');
 

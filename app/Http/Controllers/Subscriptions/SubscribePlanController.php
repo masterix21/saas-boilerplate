@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teams;
+namespace App\Http\Controllers\Subscriptions;
 
 use App\Http\Controllers\Controller;
 use LucaLongo\Subscriptions\Models\Plan;
@@ -17,7 +17,7 @@ class SubscribePlanController extends Controller
             ->sortBy('name')
             ->groupBy('invoice_interval');
 
-        return view('teams.subscribe-plan', [
+        return view('subscriptions.buy', [
             'groupedPlans' => $plans,
         ]);
     }

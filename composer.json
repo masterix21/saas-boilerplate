@@ -21,6 +21,7 @@
         "masterix21/laravel-addressable": "^2.0",
         "masterix21/laravel-subscriptions": "dev-main",
         "spatie/laravel-login-link": "^1.6",
+        "stripe/stripe-php": "^16.6",
         "wire-elements/modal": "^2.0"
     },
     "require-dev": {
