@@ -30,12 +30,12 @@
                 <fieldset aria-label="Payment frequency">
                     <div class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold ring-1 ring-inset ring-gray-200 bg-white">
                         @foreach ($groupedPlans->keys() as $interval)
-                        <button class="cursor-pointer rounded-full px-2.5 py-1"
-                                x-on:click="interval = @js($interval)"
-                                x-bind:class="{'bg-primary-600 text-white': interval === @js($interval), 'text-gray-500': interval !== @js($interval)}">
-                            <input type="radio" name="frequency" value="monthly" class="sr-only">
-                            <span>{{ ucfirst(__($interval)) }}</span>
-                        </button>
+                            <button class="cursor-pointer rounded-full px-2.5 py-1"
+                                    x-on:click="interval = @js($interval)"
+                                    x-bind:class="{'bg-primary-600 text-white': interval === @js($interval), 'text-gray-500': interval !== @js($interval)}">
+                                <input type="radio" name="frequency" value="monthly" class="sr-only">
+                                <span>{{ ucfirst(__($interval)) }}</span>
+                            </button>
                         @endforeach
                     </div>
                 </fieldset>
@@ -52,9 +52,10 @@
                                         <h2 class="text-lg font-semibold text-primary-600">{{ $plan->name }}</h2>
                                         <p class="mt-2 text-pretty text-sm/6 text-gray-600">{{ $plan->description }}</p>
                                         <div class="mt-8 flex items-center gap-4">
-                                            <div class="text-5xl font-semibold text-gray-950">{{ $plan->price }}</div>
+                                            <div class="text-5xl font-semibold text-gray-950">{{ $plan->price }} &euro;</div>
                                             <div class="text-sm text-gray-600">
                                                 <p>{{ $plan->invoice_label }}</p>
+                                                <p class="text-xs/5 text-secondary-400 pl-2">{{ __('plus tax') }}</p>
                                             </div>
                                         </div>
                                         <div class="mt-8">
@@ -67,6 +68,7 @@
                                                 @endif
                                             </a>
                                         </div>
+
                                         @if ($plan->features->isNotEmpty())
                                             <div class="mt-8">
                                                 <ul class="mt-3 space-y-3">
@@ -77,7 +79,14 @@
                                                                 <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
                                                               </svg>
                                                             </span>
-                                                            Custom domains
+
+                                                            <div class="flex items-center space-x-1.5">
+                                                                @if ($feature->pivot->max_usage)
+                                                                    <p>{{ \Illuminate\Support\Number::format($feature->pivot->max_usage) }}</p>
+                                                                @endif
+
+                                                                <p>{{ $feature->name }}</p>
+                                                            </div>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -91,7 +100,7 @@
                 </template>
             @endforeach
 
-            <p class="text-center mt-10 text-secondary-900">
+            <p class="text-center mt-10 text-secondary-500">
                 {{ __("All prices exclude taxes: they will be calculated and displayed before your payment.") }}
             </p>
         </div>
