@@ -33,5 +33,6 @@ Route::name('app.')
         Route::group(['middleware' => ['team-members', 'subscribed']], function () {
             Route::view('/', 'dashboard')->name('dashboard');
         });
-
     });
+
+Route::post('/hooks/payments/stripe', \App\Http\Controllers\Hooks\Payments\StripeController::class);

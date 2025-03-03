@@ -26,6 +26,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'team-members' => EnsureUserHasCurrentTeamMiddleware::class,
             'subscribed' => EnsureTeamIsSubscribed::class,
         ]);
+
+        $middleware->validateCsrfTokens(except: [
+            'hooks/*',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

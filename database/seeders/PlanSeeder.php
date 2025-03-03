@@ -37,6 +37,9 @@ class PlanSeeder extends Seeder
             'duration_interval' => DurationInterval::MONTH,
             'invoice_period' => 1,
             'invoice_interval' => DurationInterval::MONTH,
+            'meta' => [
+                'stripe_id' => 'price_1Qya6zR2GIf3wtN5DueRB6sW',
+            ],
         ])->features()->attach([
             $this->users->id => ['max_usage' => 5],
             $this->profiles->id => ['max_usage' => 250]
@@ -50,6 +53,9 @@ class PlanSeeder extends Seeder
             'duration_interval' => DurationInterval::YEAR,
             'invoice_period' => 1,
             'invoice_interval' => DurationInterval::YEAR,
+            'meta' => [
+                'stripe_id' => 'price_1Qya6zR2GIf3wtN5sDJAEbg1',
+            ]
         ])->features()->attach([
             $this->users->id => ['max_usage' => 5],
             $this->profiles->id => ['max_usage' => 250]

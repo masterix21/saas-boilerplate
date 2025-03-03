@@ -10,6 +10,7 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +34,7 @@ class User extends Authenticatable implements
         'email',
         'password',
         'language',
+        'meta',
     ];
 
     protected $hidden = [
@@ -41,6 +43,7 @@ class User extends Authenticatable implements
         'two_factor_recovery_codes',
         'two_factor_secret',
         'two_factor_confirmed_at',
+        'meta',
     ];
 
     protected $appends = [
@@ -52,6 +55,7 @@ class User extends Authenticatable implements
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'meta' => AsArrayObject::class,
         ];
     }
 
