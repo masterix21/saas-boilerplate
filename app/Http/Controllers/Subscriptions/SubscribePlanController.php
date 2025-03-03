@@ -19,6 +19,7 @@ class SubscribePlanController extends Controller
 
         return view('subscriptions.buy', [
             'groupedPlans' => $plans,
+            'gateways' => str(config('saas.payment_gateway'))->explode(','),
         ]);
     }
 }

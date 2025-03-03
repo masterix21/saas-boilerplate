@@ -77,7 +77,11 @@
                                             </div>
                                         </div>
                                         <div class="mt-8">
-                                            <button x-on:click="checkout = @js($plan)"
+                                            <button @if ($gateways->count() > 1)
+                                                        x-on:click="checkout = @js($plan)"
+                                                    @else
+                                                        onclick="location.href='/app/subscribe/{{ $plan->getKey() }}/{{$gateways->first()}}';"
+                                                    @endif
                                                     aria-label="Buy"
                                                     class="inline-block rounded-md bg-primary-600 dark:bg-primary-500 w-full px-3.5 py-2 text-center text-sm/6 font-semibold text-white shadow-sm hover:bg-primary-500 dark:hover:bg-primary-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 cursor-pointer">
                                                 @if ($plan->has_trial)
@@ -147,7 +151,7 @@
                                     <div class="mt-3 text-center sm:mt-5">
                                         <h3 class="text-xl font-semibold text-primary-600 dark:text-primary-400" x-text="checkout?.name"></h3>
                                         <div class="mt-2">
-                                            <p class="text-sm text-secondary-500 dark:text-secondary-300" x-text="checkout?.description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.</p>
+                                            <p class="text-sm text-secondary-500 dark:text-secondary-300" x-text="checkout?.description"></p>
                                         </div>
 
                                         <div class="mt-5 flex justify-center items-center text-4xl space-x-3 font-semibold text-secondary-900 dark:text-secondary-200">
@@ -159,20 +163,26 @@
                                     </div>
                                 </div>
                                 <div class="mt-5 sm:mt-6 flex flex-col space-y-2">
-                                    <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/stripe'"
-                                       class="rounded-md bg-sky-500 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
-                                        {{ __('Stripe') }}
-                                    </a>
+                                    @if ($gateways->contains('stripe'))
+                                        <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/stripe'"
+                                           class="rounded-md bg-sky-500 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
+                                            {{ __('Stripe') }}
+                                        </a>
+                                    @endif
 
-                                    <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/paypal'"
-                                       class="rounded-md bg-blue-800 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
-                                        {{ __('PayPal') }}
-                                    </a>
+                                    @if ($gateways->contains('paypal'))
+                                        <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/paypal'"
+                                           class="rounded-md bg-blue-800 px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
+                                            {{ __('PayPal') }}
+                                        </a>
+                                    @endif
 
-                                    <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/paddle'"
-                                       class="rounded-md bg-black px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
-                                        {{ __('Paddle') }}
-                                    </a>
+                                    @if ($gateways->contains('paddle'))
+                                        <a x-bind:href="'/app/subscribe/'+ checkout?.id +'/paddle'"
+                                           class="rounded-md bg-black px-3.5 py-2.5 text-md font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 text-center">
+                                            {{ __('Paddle') }}
+                                        </a>
+                                    @endif
 
                                     <flux:button x-on:click="checkout = null"
                                                  variant="ghost"
