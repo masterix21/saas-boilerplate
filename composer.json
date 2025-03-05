@@ -19,6 +19,7 @@
         "livewire/livewire": "^3.6",
         "livewire/volt": "^1.6",
         "masterix21/laravel-addressable": "^2.1",
+        "masterix21/laravel-contacts": "^0.0.5",
         "masterix21/laravel-subscriptions": "dev-main",
         "spatie/laravel-login-link": "^1.6",
         "wire-elements/modal": "^2.0"
