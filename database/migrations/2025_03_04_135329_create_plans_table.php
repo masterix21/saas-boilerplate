@@ -3,9 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use LucaLongo\Subscriptions\Enums\DurationInterval;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('plans', function (Blueprint $table) {
@@ -30,9 +30,6 @@ return new class extends Migration
 
             $table->smallInteger('trial_period')->unsigned()->nullable();
             $table->string('trial_interval')->nullable();
-
-            $table->smallInteger('invoice_period')->unsigned()->nullable();
-            $table->string('invoice_interval')->nullable();
 
             $table->smallInteger('grace_period')->unsigned()->nullable();
             $table->string('grace_interval')->nullable();

@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Payments\Contracts\GatewayContract;
-use App\Payments\Gateways\StripeGateway;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->bind(GatewayContract::class, fn () => new StripeGateway());
-        $this->app->alias(GatewayContract::class, 'paymentGateway');
+
     }
 }

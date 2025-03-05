@@ -42,10 +42,7 @@ class DatabaseSeeder extends Seeder
 
             AddressFactory::new()->assignTo($team)->createOne();
 
-            (new CreateSubscription)->execute(
-                plan: Plan::first(),
-                subscriber: $team,
-            );
+            $team->subscribe(Plan::first());
         });
 
         tap(User::factory(1)->createOne(), function (User $user) {

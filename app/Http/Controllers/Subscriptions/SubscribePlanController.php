@@ -15,7 +15,7 @@ class SubscribePlanController extends Controller
             ->visible()
             ->get()
             ->sortBy('name')
-            ->groupBy('invoice_interval');
+            ->groupBy('duration_interval');
 
         return view('subscriptions.buy', [
             'groupedPlans' => $plans,

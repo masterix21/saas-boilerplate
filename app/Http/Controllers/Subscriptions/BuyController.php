@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Subscriptions;
 
 use App\Http\Controllers\Controller;
-use App\Payments\Contracts\GatewayContract;
 use LucaLongo\Subscriptions\Models\Plan;
+use LucaLongo\Subscriptions\Payments\Contracts\GatewayContract;
 
 class BuyController extends Controller
 {
     public function __invoke(Plan $plan, string $gateway, GatewayContract $paymentGateway)
     {
         return $paymentGateway->subscribe(
-            auth()->user(),
             $plan,
+            auth()->user()->currentTeam,
             route('app.dashboard'),
             route('app.subscribe'),
         );

@@ -1,6 +1,6 @@
 <div class="flex-1 flex flex-col divide-y divide-secondary-100 dark:divide-secondary-700 lg:divide-y-0 lg:grid lg:grid-cols-8 lg:divide-x h-full">
     <div class="lg:col-span-2 flex lg:flex-col items-center space-x-6 lg:space-x-0 lg:space-y-6 py-6 lg:py-12 px-6 overflow-hidden">
-        <img src="{{ gravatar(auth()->user()->email)->url() }}" class="h-24 w-24 rounded-md" />
+        <img src="{{ Gravatar::get(auth()->user()->email) }}" class="h-24 w-24 rounded-md" />
 
         <div class="flex flex-col lg:justify-center lg:items-center">
             <p class="text-lg font-semibold" x-text="$store.currentUser.display_label"></p>

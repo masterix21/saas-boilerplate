@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('vat_no')->nullable();
             $table->string('tax_code')->nullable();
 
+            $table->json('meta')->nullable();
+
             $table->timestamps();
         });
     }

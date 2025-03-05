@@ -34,5 +34,3 @@ Route::name('app.')
             Route::view('/', 'dashboard')->name('dashboard');
         });
     });
-
-Route::post('/hooks/payments/stripe', \App\Http\Controllers\Hooks\Payments\StripeController::class);

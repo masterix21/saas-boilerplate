@@ -35,8 +35,6 @@ class PlanSeeder extends Seeder
             'price' => 9.99,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::MONTH,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::MONTH,
             'meta' => [
                 'stripe_id' => 'price_1Qya6zR2GIf3wtN5DueRB6sW',
             ],
@@ -51,8 +49,6 @@ class PlanSeeder extends Seeder
             'price' => 99,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::YEAR,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::YEAR,
             'meta' => [
                 'stripe_id' => 'price_1Qya6zR2GIf3wtN5sDJAEbg1',
             ]
@@ -70,8 +66,6 @@ class PlanSeeder extends Seeder
             'price' => 19.99,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::MONTH,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::MONTH,
         ])->features()->attach([
             $this->users->id => ['max_usage' => 5],
             $this->profiles->id => ['max_usage' => 500]
@@ -83,8 +77,6 @@ class PlanSeeder extends Seeder
             'price' => 190,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::YEAR,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::YEAR,
         ])->features()->attach([
             $this->users->id => ['max_usage' => 5],
             $this->profiles->id => ['max_usage' => 500]
@@ -99,8 +91,6 @@ class PlanSeeder extends Seeder
             'price' => 29.99,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::MONTH,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::MONTH,
         ])->features()->attach([
             $this->users->id => ['max_usage' => 10],
             $this->profiles->id => ['max_usage' => 10000]
@@ -112,8 +102,6 @@ class PlanSeeder extends Seeder
             'price' => 290,
             'duration_period' => 1,
             'duration_interval' => DurationInterval::YEAR,
-            'invoice_period' => 1,
-            'invoice_interval' => DurationInterval::YEAR,
         ])->features()->attach([
             $this->users->id => ['max_usage' => 10],
             $this->profiles->id => ['max_usage' => 10000]

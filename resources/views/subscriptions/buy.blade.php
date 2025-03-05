@@ -124,6 +124,14 @@
             @endforeach
         </div>
 
+        <div class="mt-6 flex justify-center">
+            <flux:button href="{{ route('profile') }}"
+                         variant="ghost"
+                         icon="user">
+                {{ __('Manage your profile') }}
+            </flux:button>
+        </div>
+
         <div x-clock x-show="checkout != null" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <div class="fixed inset-0 bg-secondary-500/50 dark:bg-secondary-900/30 transition-opacity backdrop-blur-sm"
                  x-show="checkout != null"
