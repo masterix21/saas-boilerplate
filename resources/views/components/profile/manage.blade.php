@@ -29,16 +29,11 @@
         <flux:tab.group>
             <flux:tabs class="pr-16">
                 <flux:tab name="profile" icon="user" class="px-6 pb-6">{{ __('Profile') }}</flux:tab>
-                <flux:tab name="billing" icon="banknotes" class="px-6 pb-6">{{ __('Billing') }}</flux:tab>
                 <flux:tab name="security" icon="key" class="px-6 pb-6">{{ __('Security') }}</flux:tab>
             </flux:tabs>
 
             <flux:tab.panel name="profile" class="p-6">
                 <livewire:profile.edit-form />
-            </flux:tab.panel>
-
-            <flux:tab.panel name="billing" class="p-6">
-                Billing
             </flux:tab.panel>
 
             <flux:tab.panel name="security" class="p-6">

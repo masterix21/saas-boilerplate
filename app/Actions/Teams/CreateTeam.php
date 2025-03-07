@@ -43,7 +43,12 @@ class CreateTeam
             $team->owner_id = $user->getKey();
             $team->save();
 
-            $team->billingAddress()->create($input['billing_address']);
+            $team->billingAddress()
+                ->create([
+                    ...$input['billing_address'],
+                    'is_primary' => true,
+                    'is_billing' => true,
+                ]);
 
             $user->current_team_id = $team->getKey();
             $user->save();

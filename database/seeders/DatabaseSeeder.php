@@ -40,7 +40,11 @@ class DatabaseSeeder extends Seeder
 
             $user->currentTeam()->associate($team)->save();
 
-            AddressFactory::new()->assignTo($team)->createOne();
+            AddressFactory::new()
+                ->assignTo($team)
+                ->primary()
+                ->billing()
+                ->createOne();
 
             $team->subscribe(Plan::first());
         });
@@ -51,7 +55,11 @@ class DatabaseSeeder extends Seeder
 
             $user->currentTeam()->associate($team)->save();
 
-            AddressFactory::new()->assignTo($team)->createOne();
+            AddressFactory::new()
+                ->assignTo($team)
+                ->primary()
+                ->billing()
+                ->createOne();
         });
 
         User::factory(3)->create();

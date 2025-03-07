@@ -4,6 +4,18 @@
 
         <x-logo />
 
+        <flux:dropdown class="mt-3">
+            <flux:button class="w-full cursor-pointer" icon-trailing="chevron-down">
+                {{ auth()->user()->currentTeam->name }}
+            </flux:button>
+
+            <flux:menu>
+                @foreach (auth()->user()->allTeams() as $team)
+                    <flux:menu.item href="{{ route('app.teams.show', $team) }}">{{ $team->name }}</flux:menu.item>
+                @endforeach
+            </flux:menu>
+        </flux:dropdown>
+
         <flux:navlist variant="outline" class="pt-3 lg:pt-6">
             <flux:navlist.item icon="home"
                                href="{{ route('app.dashboard') }}"
@@ -13,11 +25,6 @@
         </flux:navlist>
 
         <flux:spacer />
-
-        <flux:navlist variant="outline">
-            <flux:navlist.item icon="cog-6-tooth" href="#">Settings</flux:navlist.item>
-            <flux:navlist.item icon="information-circle" href="#">Help</flux:navlist.item>
-        </flux:navlist>
 
         <flux:modal.trigger name="manage-profile">
             <flux:button variant="ghost" class="w-full text-left flex justify-start!">

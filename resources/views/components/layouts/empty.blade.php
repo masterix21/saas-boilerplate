@@ -29,7 +29,7 @@
         </script>
 
         <flux:modal name="manage-profile"
-                    class="p-0! sm:min-w-[60%] sm:min-h-[60%]"
+                    class="p-0! sm:min-w-[60%]"
                     :dismissible="false">
             <x-profile.manage />
         </flux:modal>

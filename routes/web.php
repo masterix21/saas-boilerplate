@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Subscriptions\SubscribePlanController;
+use App\Http\Middleware\BelongsToTeamMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/app')->middleware('auth');
@@ -29,6 +30,12 @@ Route::name('app.')
 
         Route::get('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'show'])->name('teams.create');
         Route::post('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'create']);
+
+        Route::group(['middleware' => ['can:view,team'], 'prefix' => 'teams/{team}'], function () {
+            Route::get('/', [\App\Http\Controllers\Teams\ShowController::class, 'show'])->name('teams.show');
+            Route::get('/members', [\App\Http\Controllers\Teams\ShowController::class, 'show'])->name('teams.show-members');
+            Route::get('/billing', [\App\Http\Controllers\Teams\ShowController::class, 'show'])->name('teams.show-billing');
+        });
 
         Route::group(['middleware' => ['team-members', 'subscribed']], function () {
             Route::view('/', 'dashboard')->name('dashboard');

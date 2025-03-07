@@ -34,7 +34,7 @@ class Team extends Model implements DisplayLabel, SubscriberContract
     protected function casts(): array
     {
         return [
-            'meta' => AsarrayObject::class,
+            'meta' => AsArrayObject::class,
         ];
     }
 
