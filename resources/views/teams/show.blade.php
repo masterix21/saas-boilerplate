@@ -17,11 +17,11 @@
     </x-slot:styles>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center">
-        <div class="mx-auto max-w-3xl">
+        <div class="mx-auto max-w-3xl w-full md:min-w-2xl">
             <div class="-m-2 grid grid-cols-1 rounded-[2rem] shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-xl">
                 <div class="grid grid-cols-1 rounded-[2rem] p-2 shadow-md shadow-black/5">
                     <div class="rounded-3xl bg-white dark:bg-secondary-900 shadow-2xl ring-1 ring-black/5 dark:ring-white/5">
-                        <flux:navbar class="border-b px-6 pt-3">
+                        <flux:navbar class="border-b dark:border-secondary-700 px-6 pt-3">
                             <flux:navbar.item href="{{ route('app.teams.show', $currentTeam) }}"
                                               :current="request()->routeIs('app.teams.show')"
                                               icon="briefcase">
