@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Subscriptions\SubscribePlanController;
+use App\Http\Controllers\Teams\AcceptPendingInviteController;
 use App\Http\Middleware\BelongsToTeamMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::name('app.')
 
         Route::get('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'show'])->name('teams.create');
         Route::post('teams/create', [\App\Http\Controllers\Teams\CreateController::class, 'create']);
+
+        Route::get('teams/{team}/invites/{teamInvitation}/accept', AcceptPendingInviteController::class)
+            ->middleware('signed')
+            ->name('teams.invites.accept');
 
         Route::group(['middleware' => ['can:view,team'], 'prefix' => 'teams/{team}'], function () {
             Route::get('/', [\App\Http\Controllers\Teams\ShowController::class, 'show'])->name('teams.show');

@@ -44,4 +44,9 @@ class TeamPolicy
     {
         return $user->ownsTeam($team);
     }
+
+    public function addMember(User $user, Team $team): bool
+    {
+        return $user->ownsTeam($team);
+    }
 }

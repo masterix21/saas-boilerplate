@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use LucaLongo\Subscriptions\Models\Concerns\HasSubscriptions;
 use LucaLongo\Subscriptions\Models\Contracts\SubscriberContract;
 use Masterix21\Addressable\Models\Concerns\HasAddresses;
@@ -36,6 +37,11 @@ class Team extends Model implements DisplayLabel, SubscriberContract
         return [
             'meta' => AsArrayObject::class,
         ];
+    }
+
+    public function pendingInvites(): HasMany
+    {
+        return $this->hasMany(TeamInvitation::class);
     }
 
     public function owner(): BelongsTo

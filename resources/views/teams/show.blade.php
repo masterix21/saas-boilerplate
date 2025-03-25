@@ -47,7 +47,7 @@
                             @elseif (request()->routeIs('app.teams.show-members'))
                                 <livewire:teams.members :team="$currentTeam" />
                             @elseif (request()->routeIs('app.teams.show-billing'))
-                                billi
+                                billing
                             @endif
                         </div>
                     </div>

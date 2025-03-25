@@ -70,4 +70,12 @@
             {{ __('Create') }}
         </flux:button>
     </form>
+
+    <div class="mt-6 flex justify-center">
+        <flux:button href="{{ route('profile') }}"
+                     variant="ghost"
+                     icon="user">
+            {{ __('Manage your profile') }}
+        </flux:button>
+    </div>
 </x-split-layout>

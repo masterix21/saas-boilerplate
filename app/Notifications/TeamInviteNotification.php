@@ -3,9 +3,9 @@
 namespace App\Notifications;
 
 use App\Models\TeamInvitation;
-use App\Models\User;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\URL;
 
 class TeamInviteNotification extends Notification
 {
@@ -13,18 +13,25 @@ class TeamInviteNotification extends Notification
     {
     }
 
-    public function via(User|TeamInvitation $notifiable): array
+    public function via(TeamInvitation $notifiable): array
     {
         return ['mail'];
     }
 
-    public function toMail(User|TeamInvitation $notifiable): MailMessage
+    public function toMail(TeamInvitation $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->line('');
+            ->subject(__('Would you like to join :team?', ['team' => $notifiable->team->name]))
+            ->line(__('You have been invited to join the team :team', ['team' => $notifiable->team->name]))
+            ->line(__('Please click the button below to accept the invitation.'))
+            ->action(__('Accept'), URL::signedRoute('app.teams.invites.accept', [
+                'team' => $notifiable->team,
+                'teamInvitation' => $notifiable,
+            ]))
+            ->line(__('If you think this is a mistake, please ignore this email.'));
     }
 
-    public function toArray(User|TeamInvitation $notifiable): array
+    public function toArray(TeamInvitation $notifiable): array
     {
         return $notifiable->toArray();
     }

@@ -10,6 +10,10 @@ class TeamInvitation extends Model
 {
     use Notifiable;
 
+    protected $fillable = [
+        'email',
+    ];
+
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);

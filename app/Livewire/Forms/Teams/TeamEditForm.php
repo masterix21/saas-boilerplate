@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms;
+namespace App\Livewire\Forms\Teams;
 
 use App\Models\Team;
 use Livewire\Attributes\Validate;
